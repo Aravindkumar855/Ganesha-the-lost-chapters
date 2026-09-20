@@ -6995,106 +6995,140 @@ button:hover {
 }
 
 /* ========================================
-   CHAPTER 1 - COMFORTABLE MOBILE LANDSCAPE
+   FINAL MOBILE CONTROLS FIX
 ======================================== */
 
-@media (max-width: 700px) and (orientation: landscape) {
+@media (max-width: 700px) {
 
-    #chapter-1-screen {
-        min-height: 100vh;
-        padding: 6px 12px;
-        box-sizing: border-box;
-    }
-
-    /* Compact header */
-    #chapter-1-screen .chapter-header {
-        margin: 0 0 6px 0;
-        padding: 0;
-        line-height: 1.2;
-    }
-
-    #chapter-1-screen .chapter-header h1 {
-        font-size: 20px;
-        margin: 0 0 3px 0;
-    }
-
-    #chapter-1-screen .chapter-header p {
-        font-size: 11px;
-        margin: 2px 0;
-    }
-
-    #chapter-1-screen .chapter-symbol {
-        font-size: 26px;
-        margin: 0;
-    }
-
-    /* Give the actual game area enough room */
-    #chapter-1-screen .chapter-area {
-        position: relative;
-        width: 100%;
-        height: calc(100vh - 105px);
-        min-height: 240px;
-        margin: 6px auto 0;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    /* Keep controls comfortably away from the edges */
+    /* CHAPTER 1 */
     #chapter-1-screen .mobile-controls {
+
         position: fixed !important;
 
-        left: 18px !important;
-        bottom: 14px !important;
+        left: 15px !important;
+        bottom: 15px !important;
 
         display: flex !important;
 
         z-index: 99999 !important;
 
-        gap: 7px;
+        width: auto !important;
+        height: auto !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
     }
 
-    #chapter-1-screen .control-middle {
+
+    /* CHAPTER 5 - MAIN MOBILE CONTROLS */
+    #chapter-5-screen .mushak-mobile-controls {
+
+        position: fixed !important;
+
+        left: 15px !important;
+        bottom: 15px !important;
+
         display: flex !important;
-        gap: 7px;
+
+        z-index: 99999 !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
     }
 
-    #chapter-1-screen .control-button {
-        width: 48px !important;
-        height: 48px !important;
 
-        min-width: 48px !important;
-        min-height: 48px !important;
+    /* CHAPTER 5 - CHASE CONTROLS */
+    #chapter-5-screen .mushak-chase-mobile-controls {
+
+        position: fixed !important;
+
+        left: 15px !important;
+        bottom: 15px !important;
+
+        display: flex !important;
+
+        z-index: 99999 !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
+    }
+
+
+    /* Make every mobile control comfortable to tap */
+
+    #chapter-1-screen .control-button,
+    #chapter-5-screen .mushak-mobile-controls button,
+    #chapter-5-screen .mushak-chase-mobile-controls button {
+
+        width: 52px !important;
+        height: 52px !important;
+
+        min-width: 52px !important;
+        min-height: 52px !important;
 
         padding: 0 !important;
         margin: 0 !important;
 
+        font-size: 20px !important;
+
+        touch-action: none !important;
+
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -webkit-touch-callout: none !important;
+    }
+}
+
+
+/* ========================================
+   MOBILE LANDSCAPE
+======================================== */
+
+@media (max-width: 700px) and (orientation: landscape) {
+
+    /* Prevent the page from becoming horizontally enlarged */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* Keep the game screens within the phone width */
+    .screen {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* Slightly smaller controls in landscape */
+    #chapter-1-screen .control-button,
+    #chapter-5-screen .mushak-mobile-controls button,
+    #chapter-5-screen .mushak-chase-mobile-controls button {
+
+        width: 46px !important;
+        height: 46px !important;
+
+        min-width: 46px !important;
+        min-height: 46px !important;
+
         font-size: 18px !important;
-
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 12px;
-
-        touch-action: none;
-        user-select: none;
-        -webkit-user-select: none;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
     }
 
-    /* Keep the player and clues inside the playable area */
-    #chapter-1-screen #player {
-        font-size: 32px;
-    }
 
-    #chapter-1-screen .clue {
-        font-size: 26px;
-    }
+    #chapter-1-screen .mobile-controls,
+    #chapter-5-screen .mushak-mobile-controls,
+    #chapter-5-screen .mushak-chase-mobile-controls {
 
-    #chapter-1-screen #clue-counter {
-        font-size: 12px;
+        left: 12px !important;
+        bottom: 12px !important;
     }
 }
