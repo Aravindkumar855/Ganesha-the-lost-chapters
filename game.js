@@ -10213,13 +10213,12 @@ if (controlsButton) {
 
 }
 
-
 // Reset Progress
 if (resetProgressButton) {
 
     resetProgressButton.addEventListener(
         "click",
-        function() {
+        async function() {
 
             const confirmReset =
                 confirm(
@@ -10231,20 +10230,128 @@ if (resetProgressButton) {
             }
 
 
-            gameState = {
-    chaptersCompleted: 0,
-    memoryFragments: [],
-    score: 0,
-    completedChapters: {
-        1: false,
-        2: false,
-        3: false,
-        4: false,
-        5: false
-    }
-};
+            // ----------------------------------------
+            // RESET LOCAL GAME STATE
+            // ----------------------------------------
 
-location.reload();
+            gameState = {
+                chaptersCompleted: 0,
+                memoryFragments: [],
+                score: 0,
+
+                completedChapters: {
+                    1: false,
+                    2: false,
+                    3: false,
+                    4: false,
+                    5: false
+                }
+            };
+
+
+            // ----------------------------------------
+            // RESET CHAPTER VARIABLES
+            // ----------------------------------------
+
+            transformationCompleted = false;
+
+            transformationMoves = 0;
+
+            transformationRotations =
+                [0, 0, 0, 0];
+
+            transformationActive = false;
+
+
+            guardianWave = 1;
+            guardianScore = 0;
+            guardianLives = 3;
+            guardianActive = false;
+
+
+            wisdomActive = false;
+            wisdomTrial = 1;
+            wisdomScore = 0;
+            wisdomSequence = [];
+            wisdomPlayerSequence = [];
+            wisdomChangedPosition = 0;
+
+
+            // ----------------------------------------
+            // RESET SUPABASE PLAYER PROGRESS
+            // ----------------------------------------
+
+            if (
+                typeof supabaseClient !== "undefined" &&
+                onlinePlayerId
+            ) {
+
+                try {
+
+                    const { error } =
+                        await supabaseClient
+                            .from("leaderboard")
+                            .update({
+                                score: 0,
+                                chapters_completed: 0,
+                                memories_recovered: 0,
+                                chapter_5_completed: false
+                            })
+                            .eq(
+                                "player_id",
+                                onlinePlayerId
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            "❌ FAILED TO RESET ONLINE PROGRESS:",
+                            error
+                        );
+
+                        alert(
+                            "Reset failed to update online progress. Please try again."
+                        );
+
+                        return;
+                    }
+
+
+                    console.log(
+                        "✅ ONLINE PLAYER PROGRESS RESET!"
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "❌ RESET ERROR:",
+                        error
+                    );
+
+                    alert(
+                        "Reset failed. Please try again."
+                    );
+
+                    return;
+                }
+            }
+
+
+            // ----------------------------------------
+            // PREVENT OLD SUPABASE DATA FROM
+            // BEING RESTORED DURING RELOAD
+            // ----------------------------------------
+
+            onlinePlayerLoaded = false;
+
+
+            // ----------------------------------------
+            // RELOAD GAME
+            // ----------------------------------------
+
+            location.reload();
+
         }
     );
 

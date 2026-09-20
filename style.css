@@ -6993,3 +6993,54 @@ button:hover {
 
     color: #ddd;
 }
+/* ========================================
+   CHAPTER 1 MOBILE LANDSCAPE FIX
+======================================== */
+
+@media (max-width: 700px) and (orientation: landscape) {
+
+    #chapter-1-screen {
+        padding: 8px 12px;
+        box-sizing: border-box;
+    }
+
+    #chapter-1-screen .chapter-header {
+        margin-bottom: 8px;
+    }
+
+    #chapter-1-screen .chapter-header h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    #chapter-1-screen .chapter-header p {
+        font-size: 11px;
+        margin: 4px 0;
+    }
+
+    #chapter-1-screen .chapter-symbol {
+        font-size: 28px;
+    }
+
+    #chapter-1-screen .chapter-area {
+        position: relative;
+        height: calc(100vh - 110px);
+        min-height: 0;
+        margin: 8px auto;
+        overflow: hidden;
+    }
+
+    #chapter-1-screen .mobile-controls {
+        display: flex !important;
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        z-index: 1000;
+    }
+
+    #chapter-1-screen .control-button {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
