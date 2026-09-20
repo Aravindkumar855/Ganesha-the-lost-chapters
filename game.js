@@ -10095,3 +10095,157 @@ window.addEventListener("load", function() {
     }, 1500);
 
 });
+
+// ========================================
+// SETTINGS
+// ========================================
+
+const settingsButton =
+    document.getElementById("settings-button");
+
+const settingsScreen =
+    document.getElementById("settings-screen");
+
+const settingsBackButton =
+    document.getElementById("settings-back-button");
+
+const fullscreenButton =
+    document.getElementById("fullscreen-button");
+
+const controlsButton =
+    document.getElementById("controls-button");
+
+const resetProgressButton =
+    document.getElementById("reset-progress-button");
+
+const controlsInfo =
+    document.getElementById("controls-info");
+
+
+// Open Settings
+if (settingsButton) {
+
+    settingsButton.addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "main-menu"
+            ).style.display = "none";
+
+            settingsScreen.style.display =
+                "block";
+
+        }
+    );
+
+}
+
+
+// Back to Main Menu
+if (settingsBackButton) {
+
+    settingsBackButton.addEventListener(
+        "click",
+        function() {
+
+            settingsScreen.style.display =
+                "none";
+
+            document.getElementById(
+                "main-menu"
+            ).style.display = "block";
+
+        }
+    );
+
+}
+
+
+// Fullscreen
+if (fullscreenButton) {
+
+    fullscreenButton.addEventListener(
+        "click",
+        function() {
+
+            if (!document.fullscreenElement) {
+
+                document.documentElement
+                    .requestFullscreen();
+
+            } else {
+
+                document.exitFullscreen();
+
+            }
+
+        }
+    );
+
+}
+
+
+// Controls information
+if (controlsButton) {
+
+    controlsButton.addEventListener(
+        "click",
+        function() {
+
+            if (
+                controlsInfo.style.display ===
+                "none"
+            ) {
+
+                controlsInfo.style.display =
+                    "block";
+
+            } else {
+
+                controlsInfo.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+// Reset Progress
+if (resetProgressButton) {
+
+    resetProgressButton.addEventListener(
+        "click",
+        function() {
+
+            const confirmReset =
+                confirm(
+                    "Are you sure you want to reset your progress? This cannot be undone."
+                );
+
+            if (!confirmReset) {
+                return;
+            }
+
+
+            gameState = {
+    chaptersCompleted: 0,
+    memoryFragments: [],
+    score: 0,
+    completedChapters: {
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false
+    }
+};
+
+location.reload();
+        }
+    );
+
+}

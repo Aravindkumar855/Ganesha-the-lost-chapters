@@ -6841,3 +6841,155 @@ button:hover {
         padding: 15px;
     }
 }
+/* ========================================
+   MOBILE LANDSCAPE MODE
+======================================== */
+
+@media (max-width: 700px) and (orientation: landscape) {
+
+    body {
+        overflow: auto;
+    }
+
+    .screen {
+        min-height: 100vh;
+        width: 100%;
+    }
+
+    .game-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .mobile-controls {
+        left: 15px;
+        bottom: 15px;
+    }
+
+    .control-button {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+
+    .mushak-world {
+        height: 75vh;
+        min-height: 300px;
+    }
+
+    .mushak-chase-world {
+        height: 75vh;
+        min-height: 300px;
+    }
+}
+/* ========================================
+   SETTINGS SCREEN
+======================================== */
+
+#settings-screen {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.settings-panel {
+    width: min(90%, 420px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 14px;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background: rgba(10, 24, 52, 0.94);
+
+    border: 1px solid rgba(215, 175, 91, 0.45);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+
+    text-align: center;
+}
+
+.settings-panel h2 {
+    margin: 0 0 10px;
+
+    font-size: 28px;
+
+    letter-spacing: 3px;
+
+    color: #e7c979;
+}
+
+.settings-panel button {
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 12px 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(215, 175, 91, 0.45);
+
+    background: rgba(25, 45, 80, 0.9);
+
+    color: #f3df9a;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.settings-panel button:hover {
+    background: rgba(45, 70, 110, 0.95);
+
+    transform: translateY(-2px);
+}
+
+.settings-panel button:active {
+    transform: scale(0.97);
+}
+
+#controls-info {
+    margin-top: 8px;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    background: rgba(0, 0, 0, 0.22);
+
+    border: 1px solid rgba(215, 175, 91, 0.2);
+
+    text-align: left;
+
+    line-height: 1.6;
+}
+
+#controls-info h3 {
+    margin-top: 0;
+
+    color: #e7c979;
+
+    text-align: center;
+}
+
+#controls-info p {
+    margin: 8px 0;
+
+    color: #ddd;
+}
