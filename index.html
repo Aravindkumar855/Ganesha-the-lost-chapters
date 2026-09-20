@@ -1,0 +1,3269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ganesha — The Lost Chapters</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main id="main-menu">
+
+        <div class="game-symbol">ॐ</div>
+
+        <h1>GANESHA</h1>
+        <h2>THE LOST CHAPTERS</h2>
+
+        <p class="subtitle">
+            Recover the lost memories.
+            Discover the complete story.
+        </p>
+
+        <div class="menu-buttons">
+
+            <button id="start-button">
+                START JOURNEY
+            </button>
+
+            <button id="story-button">
+                STORY BOOK
+            </button>
+
+            <button id="leaderboard-button">
+                LEADERBOARD
+            </button>
+
+            <button id="settings-button">
+                SETTINGS
+            </button>
+
+        </div>
+
+        <p class="version">Prototype 0.1</p>
+
+    </main>
+
+<!-- STORY MAP -->
+
+<section id="story-map" class="screen">
+
+    <div class="map-header">
+
+        <div class="map-symbol">ॐ</div>
+
+        <h1>STORY MAP</h1>
+
+        <p>
+            Recover the lost chapters of Ganesha's story.
+        </p>
+
+    </div>
+
+
+    <div class="story-progress">
+
+        <span>STORY PROGRESS</span>
+
+       <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+</div>
+
+<span id="progress-text">0 / 5 CHAPTERS</span>
+    </div>
+
+
+    <div class="map-path">
+
+
+
+
+        <!-- CHAPTER 1 -->
+
+        <button class="map-chapter unlocked" id="chapter-1">
+
+            <span class="memory-icon">💎</span>
+
+            <span class="chapter-number">
+                CHAPTER 1
+            </span>
+
+            <span class="chapter-title">
+                THE BEGINNING
+            </span>
+
+            <span class="chapter-status">
+                UNLOCKED
+            </span>
+
+        </button>
+
+
+        <div class="path-line"></div>
+
+
+        <!-- CHAPTER 2 -->
+
+        <button class="map-chapter locked" id="chapter-2">
+
+            <span class="memory-icon">🔒</span>
+
+            <span class="chapter-number">
+                CHAPTER 2
+            </span>
+
+            <span class="chapter-title">
+                THE GUARDIAN
+            </span>
+
+            <span class="chapter-status">
+                LOCKED
+            </span>
+
+        </button>
+
+
+        <div class="path-line"></div>
+
+
+        <!-- CHAPTER 3 -->
+
+        <button class="map-chapter locked" id="chapter-3">
+
+            <span class="memory-icon">🔒</span>
+
+            <span class="chapter-number">
+                CHAPTER 3
+            </span>
+
+            <span class="chapter-title">
+                THE TRANSFORMATION
+            </span>
+
+            <span class="chapter-status">
+                LOCKED
+            </span>
+
+        </button>
+
+
+        <div class="path-line"></div>
+
+
+        <!-- CHAPTER 4 -->
+
+        <button class="map-chapter locked" id="chapter-4">
+
+            <span class="memory-icon">🔒</span>
+
+            <span class="chapter-number">
+                CHAPTER 4
+            </span>
+
+            <span class="chapter-title">
+                THE WISDOM
+            </span>
+
+            <span class="chapter-status">
+                LOCKED
+            </span>
+
+        </button>
+
+
+        <div class="path-line"></div>
+
+
+        <!-- CHAPTER 5 -->
+
+        <button class="map-chapter locked" id="chapter-5">
+
+            <span class="memory-icon">🔒</span>
+
+            <span class="chapter-number">
+                CHAPTER 5
+            </span>
+
+            <span class="chapter-title">
+                MUSHAK'S JOURNEY
+            </span>
+
+            <span class="chapter-status">
+                LOCKED
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <button id="back-button">
+        ← BACK TO MENU
+    </button>
+
+</section>
+
+<!-- CHAPTER 1 -->
+
+<section id="chapter-1-screen" class="screen">
+
+    <div class="chapter-header">
+
+        <div class="chapter-symbol">💎</div>
+
+        <h1>THE BEGINNING</h1>
+
+        <p>
+            A lost memory waits to be discovered...
+        </p>
+
+    </div>
+
+
+<div class="chapter-area">
+
+    <div id="player">
+        🧍
+    </div>
+    <div id="clue-counter">
+    CLUES FOUND: 0 / 3
+</div>
+    <div id="memory-fragment">
+    💎
+</div>
+<div class="clue" id="clue-1">
+    🪔
+</div>
+
+<div class="clue" id="clue-2">
+    🔱
+</div>
+
+<div class="clue" id="clue-3">
+    📜
+</div>
+
+    <!-- MOBILE CONTROLS -->
+
+    <div class="mobile-controls">
+
+        <button class="control-button" id="move-up">▲</button>
+
+        <div class="control-middle">
+
+            <button class="control-button" id="move-left">◀</button>
+
+            <button class="control-button" id="move-down">▼</button>
+
+            <button class="control-button" id="move-right">▶</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PUZZLE -->
+
+<div id="puzzle-panel">
+
+    <h2>🧩 THE ANCIENT PATTERN</h2>
+
+    <p>
+        The three clues have revealed a hidden memory.
+        Arrange the symbols in the correct order.
+    </p>
+
+    <div id="puzzle-symbols">
+
+        <button class="puzzle-symbol" id="symbol-lamp">
+            🪔
+        </button>
+
+        <button class="puzzle-symbol" id="symbol-trident">
+            🔱
+        </button>
+
+        <button class="puzzle-symbol" id="symbol-scroll">
+            📜
+        </button>
+
+    </div>
+
+    <p id="puzzle-status">
+        Choose the symbols in the correct order.
+    </p>
+
+</div>
+<!-- MEMORY RESTORED PANEL -->
+
+<div id="memory-restored-panel">
+
+    <div class="memory-panel-glow"></div>
+
+    <div class="memory-panel-content">
+
+        <div class="memory-panel-icon">
+            💎
+        </div>
+
+        <div class="memory-panel-label">
+            ✦ MEMORY RESTORED ✦
+        </div>
+
+        <h2>
+            THE BEGINNING
+        </h2>
+
+        <p class="memory-panel-intro">
+            A forgotten memory has returned...
+        </p>
+
+        <div class="memory-story">
+
+            <p>
+                Ganesha's journey begins with a creation
+                born from love and purpose.
+            </p>
+
+        </div>
+
+        <div class="memory-divider">
+            ✦
+        </div>
+
+        <div class="memory-moral-title">
+            🌿 WISDOM FROM THIS CHAPTER
+        </div>
+
+        <p class="memory-moral">
+            <strong>Never underestimate yourself.</strong>
+            <br>
+            Your value isn't decided by how others see you.
+        </p>
+
+        <div class="memory-score">
+            +100 MEMORY SCORE
+        </div>
+
+        <div class="memory-unlock">
+            🔓 CHAPTER 2 UNLOCKED
+        </div>
+
+        <button id="continue-memory">
+            CONTINUE JOURNEY →
+        </button>
+
+    </div>
+
+</div>
+    <button id="chapter-1-back">
+        ← BACK TO STORY MAP
+    </button>
+
+</section>
+<!-- ========================================
+     CHAPTER 2
+======================================== -->
+
+<section id="chapter-2-screen" class="screen">
+
+    <div class="chapter-header">
+
+        <div class="chapter-symbol">🛡️</div>
+
+        <h1>THE GUARDIAN</h1>
+
+        <p>
+            Protect the sacred entrance...
+        </p>
+
+    </div>
+
+    <div class="guardian-arena">
+
+        <div class="guardian-info">
+
+            <span id="guardian-wave">
+                WAVE 1 / 5
+            </span>
+
+            <span id="guardian-score">
+                SCORE: 0
+            </span>
+
+        </div>
+
+        <div id="guardian-message">
+            Prepare yourself...
+        </div>
+
+        <div id="guardian-gate">
+            🛕
+        </div>
+
+        <div id="guardian-wave-object">
+            ✦
+        </div>
+
+        <div class="guardian-symbols">
+
+            <button
+                class="guardian-symbol"
+                data-symbol="lamp">
+                🪔
+            </button>
+
+            <button
+                class="guardian-symbol"
+                data-symbol="trident">
+                🔱
+            </button>
+
+            <button
+                class="guardian-symbol"
+                data-symbol="scroll">
+                📜
+            </button>
+
+        </div>
+
+        <div id="guardian-lives">
+            ❤️ ❤️ ❤️
+        </div>
+
+    </div>
+
+    <!-- CHAPTER 2 COMPLETE -->
+
+    <div id="guardian-complete">
+
+        <div class="guardian-complete-content">
+
+            <div class="memory-panel-icon">
+                💎
+            </div>
+
+            <div class="memory-panel-label">
+                ✦ MEMORY RESTORED ✦
+            </div>
+
+            <h2>
+                THE GUARDIAN
+            </h2>
+
+            <p class="memory-panel-intro">
+                A forgotten memory has returned...
+            </p>
+
+            <div class="memory-story">
+
+                <p>
+                    Ganesha stood as a guardian,
+                    protecting what had been entrusted to him.
+                </p>
+
+            </div>
+
+            <div class="memory-divider">
+                ✦
+            </div>
+
+            <div class="memory-moral-title">
+                🌿 WISDOM FROM THIS CHAPTER
+            </div>
+
+            <p class="memory-moral">
+
+                <strong>
+                    Do your duty with courage.
+                </strong>
+
+                <br>
+
+                Even difficult responsibilities
+                can make us stronger.
+
+            </p>
+
+            <div class="memory-score">
+                +250 MEMORY SCORE
+            </div>
+
+            <div class="memory-unlock">
+                🔓 CHAPTER 3 UNLOCKED
+            </div>
+
+            <button id="continue-guardian">
+                CONTINUE JOURNEY →
+            </button>
+
+        </div>
+
+    </div>
+
+    <button id="chapter-2-back">
+        ← BACK TO STORY MAP
+    </button>
+
+</section>
+<!-- CHAPTER 3 -->
+
+<section id="chapter-3-screen" class="screen">
+
+    <div class="chapter-header">
+        <div class="chapter-symbol sacred-symbol">卐</div>
+
+        <h1>THE TRANSFORMATION</h1>
+
+        <p>
+            Restore the sacred memory by rebuilding the ancient symbol.
+        </p>
+    </div>
+
+    <div class="transformation-arena">
+
+        <div class="transformation-info">
+            <span>✦ SACRED MEMORY ✦</span>
+            <span id="transformation-moves">MOVES: 0</span>
+        </div>
+
+        <div class="seal-title">
+            RESTORE THE SACRED SWASTIK
+        </div>
+
+        <p class="seal-instruction">
+            The sacred symbol has been broken into four pieces.
+            <br>
+            <strong>
+                Rotate each piece until it matches the target.
+            </strong>
+        </p>
+
+        <!-- TARGET -->
+        <div class="seal-target-box">
+
+            <div class="seal-target-label">
+                TARGET
+            </div>
+
+            <div class="target-symbol">
+                卐
+            </div>
+
+            <div class="target-dots">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+            </div>
+
+        </div>
+
+        <div class="puzzle-label">
+            REBUILD THE SACRED SYMBOL
+        </div>
+
+        <!-- PUZZLE -->
+        <div id="seal-puzzle">
+
+            <!-- PIECE 1 -->
+            <button
+                class="seal-piece piece-1"
+                data-index="0"
+                aria-label="Rotate puzzle piece 1"
+            >
+                <span class="piece-number">1</span>
+                <span class="rotate-icon">↻</span>
+
+                <svg
+                    class="piece-svg"
+                    viewBox="0 0 360 360"
+                    aria-hidden="true"
+                >
+                    <text
+                        x="180"
+                        y="180"
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                    >卐</text>
+                </svg>
+            </button>
+
+            <!-- PIECE 2 -->
+            <button
+                class="seal-piece piece-2"
+                data-index="1"
+                aria-label="Rotate puzzle piece 2"
+            >
+                <span class="piece-number">2</span>
+                <span class="rotate-icon">↻</span>
+
+                <svg
+                    class="piece-svg"
+                    viewBox="0 0 360 360"
+                    aria-hidden="true"
+                >
+                    <text
+                        x="180"
+                        y="180"
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                    >卐</text>
+                </svg>
+            </button>
+
+            <!-- PIECE 3 -->
+            <button
+                class="seal-piece piece-3"
+                data-index="2"
+                aria-label="Rotate puzzle piece 3"
+            >
+                <span class="piece-number">3</span>
+                <span class="rotate-icon">↻</span>
+
+                <svg
+                    class="piece-svg"
+                    viewBox="0 0 360 360"
+                    aria-hidden="true"
+                >
+                    <text
+                        x="180"
+                        y="180"
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                    >卐</text>
+                </svg>
+            </button>
+
+            <!-- PIECE 4 -->
+            <button
+                class="seal-piece piece-4"
+                data-index="3"
+                aria-label="Rotate puzzle piece 4"
+            >
+                <span class="piece-number">4</span>
+                <span class="rotate-icon">↻</span>
+
+                <svg
+                    class="piece-svg"
+                    viewBox="0 0 360 360"
+                    aria-hidden="true"
+                >
+                    <text
+                        x="180"
+                        y="180"
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                    >卐</text>
+                </svg>
+            </button>
+
+            <div class="puzzle-center">
+                ✦
+            </div>
+
+        </div>
+
+        <div
+            id="transformation-message"
+            class="seal-message"
+        >
+            Rotate the four pieces to restore the sacred symbol.
+        </div>
+
+    </div>
+
+    <!-- COMPLETION PANEL -->
+    <div id="transformation-complete">
+
+        <div class="transformation-complete-content">
+
+            <div class="memory-panel-icon">
+                💎
+            </div>
+
+            <div class="memory-panel-label">
+                ✦ MEMORY RESTORED ✦
+            </div>
+
+            <h2>
+                THE TRANSFORMATION
+            </h2>
+
+            <p class="memory-panel-intro">
+                A forgotten memory has returned...
+            </p>
+
+            <div class="memory-story">
+                <p>
+                    What was once broken has been transformed.
+                    The restored memory reveals that change can
+                    become part of a greater journey.
+                </p>
+            </div>
+
+            <div class="memory-divider">
+                ✦
+            </div>
+
+            <div class="memory-moral-title">
+                🌿 WISDOM FROM THIS CHAPTER
+            </div>
+
+            <p class="memory-moral">
+                <strong>Change can lead to growth.</strong>
+                <br>
+                Even difficult changes can become part of
+                something meaningful.
+            </p>
+
+            <div class="memory-score">
+                +300 MEMORY SCORE
+            </div>
+
+            <div class="memory-unlock">
+                🔓 CHAPTER 4 UNLOCKED
+            </div>
+
+            <button id="continue-transformation">
+                CONTINUE JOURNEY →
+            </button>
+
+        </div>
+
+    </div>
+
+    <button id="chapter-3-back">
+        ← BACK TO STORY MAP
+    </button>
+
+</section>
+
+<!-- ========================================
+     CHAPTER 4 — THE WISDOM
+======================================== -->
+
+<section id="chapter-4-screen" class="screen">
+
+    <div class="chapter-header">
+
+        <div class="chapter-symbol wisdom-symbol">
+            🪷
+        </div>
+
+        <h1>THE WISDOM</h1>
+
+        <p>
+            A quiet memory waits within the sacred journey...
+        </p>
+
+    </div>
+
+
+    <!-- WISDOM ARENA -->
+
+    <div class="wisdom-arena">
+
+        <div class="wisdom-info">
+
+            <span id="wisdom-trial">
+                TRIAL 1 / 3
+            </span>
+
+            <span id="wisdom-score">
+                SCORE: 0
+            </span>
+
+        </div>
+
+
+        <div id="wisdom-message">
+
+            Observe carefully.
+            Wisdom begins with attention.
+
+        </div>
+
+
+        <!-- TRIAL 1 -->
+
+        <div
+            id="wisdom-trial-1"
+            class="wisdom-trial"
+        >
+
+            <div class="wisdom-title">
+                ✦ TRIAL OF OBSERVATION ✦
+            </div>
+
+            <p class="wisdom-instruction">
+
+                Remember the order of the symbols.
+                <br>
+                They will disappear shortly.
+
+            </p>
+
+
+            <div
+                id="wisdom-pattern" class="wisdom-pattern">
+
+                <span>🪔</span>
+                <span>🪷</span>
+                <span>🐭</span>
+                <span>🍬</span>
+            
+            </div>
+
+
+            <div
+                id="wisdom-answer-area"
+                class="wisdom-answer-area"
+            >
+
+                <p>
+                    Select the symbols in the same order:
+                </p>
+
+                <div class="wisdom-symbol-buttons">
+
+                    <button
+                        class="wisdom-symbol-button"
+                        data-wisdom-symbol="🪔"
+                    >
+                        🪔
+                    </button>
+
+                    <button
+                        class="wisdom-symbol-button"
+                        data-wisdom-symbol="🪷"
+                    >
+                        🪷
+                    </button>
+
+                    <button
+                        class="wisdom-symbol-button"
+                        data-wisdom-symbol="🌺"
+                    >
+                        🌺
+                    </button>
+
+                    <button
+                        class="wisdom-symbol-button"
+                        data-wisdom-symbol="🍬"
+                    >
+                        🍬
+                    </button>
+
+                </div>
+
+
+                <p id="wisdom-answer">
+                    Choose carefully...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRIAL 2 -->
+
+        <div
+            id="wisdom-trial-2"
+            class="wisdom-trial"
+        >
+
+            <div class="wisdom-title">
+                ✦ TRIAL OF MEMORY ✦
+            </div>
+
+            <p class="wisdom-instruction">
+
+                Look closely.
+                <br>
+                One symbol has changed.
+
+            </p>
+
+
+            <div
+                id="wisdom-memory-row"
+                class="wisdom-memory-row"
+            >
+
+                <button data-position="0">🪔</button>
+                <button data-position="1">🪷</button>
+                <button data-position="2">🐭</button>
+                <button data-position="3">🍬</button>
+
+            </div>
+
+
+            <p id="wisdom-memory-answer">
+                Which position changed?
+            </p>
+
+        </div>
+
+
+        <!-- TRIAL 3 -->
+
+        <div
+            id="wisdom-trial-3"
+            class="wisdom-trial"
+        >
+
+            <div class="wisdom-title">
+                ✦ TRIAL OF UNDERSTANDING ✦
+            </div>
+
+
+            <p class="wisdom-question">
+
+                A path before you is not clear.
+                <br><br>
+
+                What is the wisest response?
+
+            </p>
+
+
+            <div class="wisdom-choice-buttons">
+
+                <button
+                    class="wisdom-choice"
+                    data-correct="true"
+                >
+                    🌿 Pause, observe, and find another path.
+                </button>
+
+
+                <button
+                    class="wisdom-choice"
+                    data-correct="false"
+                >
+                    ⚡ Rush forward without observing.
+                </button>
+
+
+                <button
+                    class="wisdom-choice"
+                    data-correct="false"
+                >
+                    🔥 Give up immediately.
+                </button>
+
+            </div>
+
+
+            <p id="wisdom-choice-answer">
+                Choose the response that shows patience and understanding.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHAPTER 4 COMPLETION -->
+
+    <div id="wisdom-complete">
+
+        <div class="wisdom-complete-content">
+
+            <div class="memory-panel-icon">
+                💎
+            </div>
+
+
+            <div class="memory-panel-label">
+                ✦ MEMORY RESTORED ✦
+            </div>
+
+
+            <h2>
+                THE WISDOM
+            </h2>
+
+
+            <p class="memory-panel-intro">
+                Another memory has returned...
+            </p>
+
+
+            <div class="memory-story">
+
+                <p>
+                    The journey reveals that wisdom is not
+                    only knowledge. It is the patience to observe,
+                    the clarity to remember, and the understanding
+                    to choose a thoughtful path.
+                </p>
+
+            </div>
+
+
+            <div class="memory-divider">
+                ✦
+            </div>
+
+
+            <div class="memory-moral-title">
+                🌿 WISDOM FROM THIS CHAPTER
+            </div>
+
+
+            <p class="memory-moral">
+
+                <strong>
+                    Wisdom begins with patience.
+                </strong>
+
+                <br>
+
+                Observe carefully.
+                Remember what matters.
+                Choose with understanding.
+
+            </p>
+
+
+            <div class="memory-score">
+                +400 MEMORY SCORE
+            </div>
+
+
+            <div class="memory-unlock">
+                🔓 CHAPTER 5 UNLOCKED
+            </div>
+
+
+            <button id="continue-wisdom">
+                CONTINUE JOURNEY →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <button id="chapter-4-back">
+        ← BACK TO STORY MAP
+    </button>
+
+</section>
+
+
+
+<!-- =========================================
+     CHAPTER 5 — MUSHAK'S JOURNEY
+========================================= -->
+
+<section id="chapter-5-screen" class="screen">
+
+    <div class="mushak-hero">
+
+        <!-- Atmospheric background -->
+        <div class="mushak-stars"></div>
+        <div class="mushak-moon">◐</div>
+
+        <!-- Header -->
+        <div class="mushak-chapter-label">
+            ✦ CHAPTER 5 ✦
+        </div>
+
+        <h1 class="mushak-main-title">
+            MUSHAK'S JOURNEY
+        </h1>
+
+        <p class="mushak-subtitle">
+            The smallest companion.
+            <span>The greatest secret.</span>
+        </p>
+
+
+        <!-- Main cinematic area -->
+        <div class="mushak-journey-layout">
+
+            <!-- LEFT: Mushak -->
+            <div class="mushak-character-area">
+
+                <div class="mushak-character-glow"></div>
+
+                <div
+                    id="mushak-hero-character"
+                    class="mushak-character"
+                >
+                    🐭
+                </div>
+
+                <div class="mushak-ground-glow"></div>
+
+            </div>
+
+
+            <!-- RIGHT: Journey information -->
+            <div class="mushak-journey-panel">
+
+                <div class="mushak-panel-heading">
+                    THE JOURNEY BEGINS
+                </div>
+
+
+                <div class="mushak-step active">
+
+                    <div class="mushak-step-icon">
+                        🌙
+                    </div>
+
+                    <div class="mushak-step-content">
+
+                        <h3>
+                            THE FORGOTTEN PATH
+                        </h3>
+
+                        <p>
+                            Find the memories hidden
+                            within the darkness.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mushak-step">
+
+                    <div class="mushak-step-icon">
+                        🧩
+                    </div>
+
+                    <div class="mushak-step-content">
+
+                        <h3>
+                            THE BROKEN MEMORY
+                        </h3>
+
+                        <p>
+                            Solve a mystery that changes
+                            every time you return.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mushak-step">
+
+                    <div class="mushak-step-icon">
+                        ⚡
+                    </div>
+
+                    <div class="mushak-step-content">
+
+                        <h3>
+                            THE CHASE
+                        </h3>
+
+                        <p>
+                            Run, react and decide how much
+                            of the memory you dare to collect.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mushak-step">
+
+                    <div class="mushak-step-icon">
+                        🚪
+                    </div>
+
+                    <div class="mushak-step-content">
+
+                        <h3>
+                            THE THREE DOORS
+                        </h3>
+
+                        <p>
+                            Choose your path.
+                            Each one reveals something different.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mushak-step">
+
+                    <div class="mushak-step-icon">
+                        ✦
+                    </div>
+
+                    <div class="mushak-step-content">
+
+                        <h3>
+                            THE FINAL REVELATION
+                        </h3>
+
+                        <p>
+                            Discover why Mushak was
+                            chosen for this journey.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Story line -->
+        <div
+            id="mushak-intro-message"
+            class="mushak-story-line"
+        >
+            Sometimes the smallest steps
+            lead to the biggest truths.
+        </div>
+
+
+        <!-- Begin button -->
+        <div class="mushak-action-area">
+
+            <button
+                id="mushak-begin-button"
+                class="mushak-begin-button"
+            >
+                <span>🐾</span>
+                BEGIN MUSHAK'S JOURNEY
+                <span>→</span>
+            </button>
+
+        </div>
+        <!-- =========================================
+     MUSHAK — THE FORGOTTEN PATH
+========================================= -->
+
+<!-- =========================================
+     MUSHAK'S JOURNEY — THE CHASE
+========================================= -->
+
+<div
+    id="mushak-chase"
+    class="mushak-chase"
+    style="display: none;"
+>
+
+    <!-- CHASE HEADER -->
+
+    <div class="mushak-chase-header">
+
+        <div class="mushak-chase-title">
+            ⚡ THE CHASE
+        </div>
+
+        <div class="mushak-chase-stats">
+
+            <span id="mushak-chase-score">
+                SCORE: 0
+            </span>
+
+            <span id="mushak-chase-lives">
+                ❤️ ❤️ ❤️
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHASE MESSAGE -->
+
+    <div
+        id="mushak-chase-message"
+        class="mushak-chase-message"
+    >
+        RUN, MUSHAK.
+    </div>
+
+
+    <!-- CHASE WORLD -->
+
+    <div
+        id="mushak-chase-world"
+        class="mushak-chase-world"
+    >
+
+        <!-- Moon -->
+
+        <div class="chase-moon">
+            🌙
+        </div>
+
+
+        <!-- Background trees -->
+
+        <div class="chase-tree chase-tree-1">
+            🌳
+        </div>
+
+        <div class="chase-tree chase-tree-2">
+            🌳
+        </div>
+
+        <div class="chase-tree chase-tree-3">
+            🌳
+        </div>
+
+        <div class="chase-tree chase-tree-4">
+            🌳
+        </div>
+
+
+        <!-- Shrine / destination -->
+
+        <div
+            id="chase-shrine"
+            class="chase-shrine"
+        >
+            🏛️
+        </div>
+
+
+        <!-- Collectible energy -->
+
+        <button
+            class="chase-energy"
+            data-energy="0"
+        >
+            ✦
+        </button>
+
+        <button
+            class="chase-energy"
+            data-energy="1"
+        >
+            ✦
+        </button>
+
+        <button
+            class="chase-energy"
+            data-energy="2"
+        >
+            ✦
+        </button>
+
+        <button
+            class="chase-energy"
+            data-energy="3"
+        >
+            ✦
+        </button>
+
+
+        <!-- Obstacles -->
+
+        <div
+            class="chase-obstacle"
+            data-obstacle="0"
+        >
+            🪨
+        </div>
+
+        <div
+            class="chase-obstacle"
+            data-obstacle="1"
+        >
+            🪵
+        </div>
+
+        <div
+            class="chase-obstacle"
+            data-obstacle="2"
+        >
+            🪨
+        </div>
+
+
+        <!-- The shadow -->
+
+        <div
+            id="mushak-shadow"
+            class="mushak-shadow"
+        >
+            👁️
+        </div>
+
+
+        <!-- Mushak -->
+
+        <div
+            id="mushak-chase-player"
+            class="mushak-chase-player"
+        >
+            🐭
+        </div>
+
+
+        <!-- Finish gate -->
+
+        <div
+            id="mushak-chase-finish"
+            class="mushak-chase-finish"
+        >
+            ✦
+        </div>
+
+    </div>
+
+
+    <!-- CONTROL HINT -->
+
+    <div class="mushak-chase-controls-hint">
+
+        <span>W A S D</span>
+
+        <span>or</span>
+
+        <span>ARROW KEYS</span>
+
+    </div>
+
+
+    <!-- MOBILE CONTROLS -->
+
+    <div class="mushak-chase-mobile-controls">
+
+        <button
+            class="mushak-chase-move"
+            data-chase-direction="up"
+        >
+            ▲
+        </button>
+
+        <div>
+
+            <button
+                class="mushak-chase-move"
+                data-chase-direction="left"
+            >
+                ◀
+            </button>
+
+            <button
+                class="mushak-chase-move"
+                data-chase-direction="down"
+            >
+                ▼
+            </button>
+
+            <button
+                class="mushak-chase-move"
+                data-chase-direction="right"
+            >
+                ▶
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     CHAPTER 5.3 — THE THREE DOORS
+===================================================== -->
+
+<div
+    id="mushak-three-doors"
+    class="mushak-three-doors"
+    style="display: none;"
+>
+
+    <div class="three-doors-header">
+
+        <div class="three-doors-symbol">
+            🐭
+        </div>
+
+        <div class="three-doors-kicker">
+            THE CHAMBER OF MEMORY
+        </div>
+
+        <h1>
+            THE THREE DOORS
+        </h1>
+
+        <p>
+            Mushak has reached the place where memories
+            become choices.
+        </p>
+
+    </div>
+
+
+    <div
+        id="three-doors-message"
+        class="three-doors-message"
+    >
+        Three paths stand before you.
+        Only one can be chosen.
+    </div>
+
+
+    <!-- =============================================
+         DOORS
+    ============================================== -->
+
+    <div class="three-doors-container">
+
+
+        <!-- MEMORY -->
+
+        <button
+            class="memory-door"
+            data-door="memory"
+        >
+
+            <div class="door-glow">
+                🌙
+            </div>
+
+            <div class="door-symbol">
+                🪔
+            </div>
+
+            <div class="door-number">
+                I
+            </div>
+
+            <div class="door-title">
+                THE DOOR OF MEMORY
+            </div>
+
+            <div class="door-description">
+                Remember what was lost.
+            </div>
+
+            <div class="door-question">
+                What if your past is trying to find you?
+            </div>
+
+        </button>
+
+
+        <!-- COURAGE -->
+
+        <button
+            class="memory-door"
+            data-door="courage"
+        >
+
+            <div class="door-glow">
+                🔥
+            </div>
+
+            <div class="door-symbol">
+                🔥
+            </div>
+
+            <div class="door-number">
+                II
+            </div>
+
+            <div class="door-title">
+                THE DOOR OF COURAGE
+            </div>
+
+            <div class="door-description">
+                Face what follows you.
+            </div>
+
+            <div class="door-question">
+                What if the thing you fear knows your name?
+            </div>
+
+        </button>
+
+
+        <!-- WISDOM -->
+
+        <button
+            class="memory-door"
+            data-door="wisdom"
+        >
+
+            <div class="door-glow">
+                ✨
+            </div>
+
+            <div class="door-symbol">
+                🪷
+            </div>
+
+            <div class="door-number">
+                III
+            </div>
+
+            <div class="door-title">
+                THE DOOR OF WISDOM
+            </div>
+
+            <div class="door-description">
+                Understand why you were chosen.
+            </div>
+
+            <div class="door-question">
+                What if the answer was always within you?
+            </div>
+
+        </button>
+
+    </div>
+
+
+    <!-- =============================================
+         SELECTED DOOR REVEAL
+    ============================================== -->
+
+    <div
+        id="three-doors-reveal"
+        class="three-doors-reveal"
+        style="display: none;"
+    >
+
+        <div
+            id="three-doors-reveal-symbol"
+            class="three-doors-reveal-symbol"
+        >
+            ✦
+        </div>
+
+        <div
+            id="three-doors-reveal-title"
+            class="three-doors-reveal-title"
+        >
+            PATH CHOSEN
+        </div>
+
+        <p
+            id="three-doors-reveal-text"
+            class="three-doors-reveal-text"
+        >
+            Your choice has awakened a forgotten memory.
+        </p>
+
+        <div
+            id="three-doors-reveal-memory"
+            class="three-doors-reveal-memory"
+        >
+            ✦ MEMORY FRAGMENT AWAKENED ✦
+        </div>
+
+        <button
+            id="three-doors-continue"
+            class="three-doors-continue"
+        >
+            ENTER THE MEMORY →
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     CHAPTER 5 — MEMORY PATH
+===================================================== -->
+
+<section
+    id="mushak-memory-path"
+    class="mushak-memory-path"
+    style="display: none;"
+>
+
+    <div class="memory-path-header">
+
+        <div class="memory-path-icon">
+            🪔
+        </div>
+
+        <div class="memory-path-kicker">
+            THE PATH OF MEMORY
+        </div>
+
+        <h1>
+            THE MEMORY CHOSE MUSHAK
+        </h1>
+
+        <p>
+            The smallest companion has stepped into
+            a memory that should not exist.
+        </p>
+
+    </div>
+
+
+    <div class="memory-path-scene">
+
+        <div class="memory-stars">
+            ✦　·　✧　·　✦　·　✧　·　✦
+        </div>
+
+        <div class="memory-temple">
+            🛕
+        </div>
+
+        <div class="memory-young-mushak">
+            🐭
+        </div>
+
+        <div class="memory-light">
+            ✦
+        </div>
+
+    </div>
+
+
+    <div
+        id="memory-path-message"
+        class="memory-path-message"
+    >
+        Something feels strangely familiar...
+    </div>
+
+
+    <div class="memory-path-story">
+
+        <p>
+            Mushak has seen this place before.
+        </p>
+
+        <p>
+            Not during this journey.
+        </p>
+
+        <p class="memory-emphasis">
+            In a memory.
+        </p>
+
+        <div class="memory-divider">
+            ✦
+        </div>
+
+        <p>
+            Beneath the ancient doorway,
+            Mushak notices something impossible.
+        </p>
+
+        <p>
+            Tiny footprints.
+        </p>
+
+        <p class="memory-emphasis">
+            His footprints.
+        </p>
+
+    </div>
+
+
+    <div class="memory-path-choice">
+
+        <div class="memory-choice-title">
+            ✦ THE MEMORY IS WAITING ✦
+        </div>
+
+        <p>
+            What should Mushak do?
+        </p>
+
+
+        <div class="memory-action-buttons">
+
+            <button
+                class="memory-action"
+                id="memory-enter-temple"
+            >
+                🛕 ENTER THE TEMPLE
+            </button>
+
+
+            <button
+                class="memory-action"
+                id="memory-observe"
+            >
+                👁️ OBSERVE THE MEMORY
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="memory-path-reveal"
+        class="memory-path-reveal"
+        style="display: none;"
+    >
+
+        <div class="reveal-icon">
+            🐭
+        </div>
+
+        <div class="reveal-label">
+            ✦ MEMORY AWAKENED ✦
+        </div>
+
+        <h2>
+            MUSHAK REMEMBERS
+        </h2>
+
+        <p>
+            He was never following the memories.
+        </p>
+
+        <p class="reveal-emphasis">
+            The memories were following him.
+        </p>
+
+        <button
+            id="memory-final-reveal"
+        >
+            REVEAL THE TRUTH →
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     CHAPTER 5.4 — THE SHADOW MEMORY
+===================================================== -->
+
+<div
+    id="mushak-shadow-memory"
+    class="mushak-shadow-memory"
+    style="display: none;"
+>
+
+    <div class="shadow-memory-header">
+
+        <div class="shadow-memory-symbol">
+            🔥
+        </div>
+
+        <div class="shadow-memory-kicker">
+            THE COURAGE PATH
+        </div>
+
+        <h1>
+            THE SHADOW SPEAKS
+        </h1>
+
+        <p>
+            Mushak has entered a memory that was never meant
+            to be remembered.
+        </p>
+
+    </div>
+
+
+    <div
+        id="shadow-memory-message"
+        class="shadow-memory-message"
+    >
+        Something is watching...
+    </div>
+
+
+    <!-- THE SHADOW -->
+
+    <div
+        id="shadow-figure"
+        class="shadow-figure"
+    >
+        ◉
+    </div>
+
+
+    <div class="shadow-memory-instruction">
+
+        <span>
+            THE SHADOW HAS CREATED THREE MEMORIES.
+        </span>
+
+        <br>
+
+        One is real.
+
+        <strong>
+            Find it.
+        </strong>
+
+    </div>
+
+
+    <!-- MEMORY CARDS -->
+
+    <div
+        id="shadow-memory-choices"
+        class="shadow-memory-choices"
+    >
+
+        <button
+            class="shadow-memory-card"
+            data-shadow-choice="0"
+        >
+
+            <span class="shadow-card-symbol">
+                🌳
+            </span>
+
+            <span class="shadow-card-title">
+                THE GARDEN
+            </span>
+
+            <span class="shadow-card-text">
+                A small Mushak sits beneath an ancient tree.
+            </span>
+
+        </button>
+
+
+        <button
+            class="shadow-memory-card"
+            data-shadow-choice="1"
+        >
+
+            <span class="shadow-card-symbol">
+                🛕
+            </span>
+
+            <span class="shadow-card-title">
+                THE TEMPLE
+            </span>
+
+            <span class="shadow-card-text">
+                A forgotten shrine waits beneath the stars.
+            </span>
+
+        </button>
+
+
+        <button
+            class="shadow-memory-card"
+            data-shadow-choice="2"
+        >
+
+            <span class="shadow-card-symbol">
+                🌊
+            </span>
+
+            <span class="shadow-card-title">
+                THE RIVER
+            </span>
+
+            <span class="shadow-card-text">
+                Moonlight moves across water that remembers.
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="shadow-memory-result"
+        class="shadow-memory-result"
+        style="display: none;"
+    >
+
+        <div
+            id="shadow-result-symbol"
+            class="shadow-result-symbol"
+        >
+            ✦
+        </div>
+
+        <h2
+            id="shadow-result-title"
+        >
+            MEMORY AWAKENED
+        </h2>
+
+        <p
+            id="shadow-result-text"
+        >
+            The memory has opened.
+        </p>
+
+        <div
+            id="shadow-result-fragment"
+            class="shadow-result-fragment"
+        >
+            ✦ MEMORY FRAGMENT ✦
+        </div>
+
+        <button
+            id="shadow-memory-continue"
+        >
+            FOLLOW THE MEMORY →
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     CHAPTER 5.5 — THE TEMPLE MEMORY
+===================================================== -->
+
+<div
+    id="mushak-temple-memory"
+    class="mushak-temple-memory"
+    style="display: none;"
+>
+
+    <div class="temple-memory-header">
+
+        <div class="temple-memory-symbol">
+            🛕
+        </div>
+
+        <div class="temple-memory-kicker">
+            A MEMORY FROM BEFORE THE JOURNEY
+        </div>
+
+        <h1>
+            THE TEMPLE REMEMBERS
+        </h1>
+
+        <p>
+            Mushak has returned to the place where
+            the first memory was born.
+        </p>
+
+    </div>
+
+
+    <div
+        id="temple-memory-message"
+        class="temple-memory-message"
+    >
+        Something here remembers Mushak...
+    </div>
+
+
+    <!-- TEMPLE SCENE -->
+
+    <div
+        class="temple-memory-scene"
+    >
+
+        <div class="temple-stars">
+            ✦　·　✧　·　✦　·　·　✧　·　✦
+        </div>
+
+
+        <div
+            class="temple-building"
+        >
+            🛕
+        </div>
+
+
+        <div
+            class="young-mushak"
+        >
+            🐭
+        </div>
+
+
+        <div
+            class="temple-glow"
+        >
+            ✦
+        </div>
+
+    </div>
+
+
+    <div class="temple-memory-instruction">
+
+        <span>
+            THE MEMORY IS BROKEN.
+        </span>
+
+        <br>
+
+        Three fragments remain.
+
+        <strong>
+            Follow the one that belongs to Mushak.
+        </strong>
+
+    </div>
+
+
+    <!-- MEMORY TRAIL -->
+
+    <div
+        id="temple-memory-choices"
+        class="temple-memory-choices"
+    >
+
+        <button
+            class="temple-memory-choice"
+            data-temple-choice="0"
+        >
+
+            <span class="temple-choice-icon">
+                🪔
+            </span>
+
+            <span class="temple-choice-title">
+                THE LAMP
+            </span>
+
+            <span class="temple-choice-text">
+                A lamp that was lit before anyone
+                knew Mushak would arrive.
+            </span>
+
+        </button>
+
+
+        <button
+            class="temple-memory-choice"
+            data-temple-choice="1"
+        >
+
+            <span class="temple-choice-icon">
+                🐭
+            </span>
+
+            <span class="temple-choice-title">
+                THE LITTLE FOOTPRINT
+            </span>
+
+            <span class="temple-choice-text">
+                Tiny footprints leading toward
+                the temple doorway.
+            </span>
+
+        </button>
+
+
+        <button
+            class="temple-memory-choice"
+            data-temple-choice="2"
+        >
+
+            <span class="temple-choice-icon">
+                🌺
+            </span>
+
+            <span class="temple-choice-title">
+                THE FLOWER
+            </span>
+
+            <span class="temple-choice-text">
+                A flower placed beside an empty
+                stone seat.
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- REVEAL -->
+
+    <div
+        id="temple-memory-reveal"
+        class="temple-memory-reveal"
+        style="display: none;"
+    >
+
+        <div class="temple-reveal-icon">
+            🐭
+        </div>
+
+        <div class="temple-reveal-label">
+            ✦ MEMORY RECOGNIZED ✦
+        </div>
+
+        <h2>
+            THE FOOTPRINTS
+        </h2>
+
+        <p>
+            Mushak follows the tiny footprints.
+            They lead directly to the ancient doorway.
+        </p>
+
+        <p>
+            But the footprints are not going into the temple.
+        </p>
+
+        <p class="temple-secret-line">
+            They are coming <strong>out</strong> of it.
+        </p>
+
+
+        <div class="temple-memory-question">
+
+            Someone had been waiting for Mushak
+            long before he began this journey.
+
+        </div>
+
+
+        <button
+            id="temple-memory-continue"
+        >
+            DISCOVER WHO WAS WAITING →
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     CHAPTER 5 — WISDOM PATH
+===================================================== -->
+
+<section
+    id="mushak-wisdom-path"
+    style="display: none;"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-symbol">
+            🪷
+        </div>
+
+        <div class="chapter-kicker">
+            ✦ THE WISDOM PATH ✦
+        </div>
+
+        <h1>
+            THE SILENT MEMORY
+        </h1>
+
+        <p>
+            Mushak enters a memory that does not speak.
+        </p>
+
+    </div>
+
+
+    <div
+        style="
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 55px 35px;
+            text-align: center;
+            border: 1px solid rgba(218,181,86,.45);
+            border-radius: 28px;
+            background: radial-gradient(
+                circle at center,
+                rgba(50,45,90,.35),
+                rgba(3,8,25,.96)
+            );
+        "
+    >
+
+        <div style="
+            font-size: 80px;
+            margin-bottom: 25px;
+        ">
+            🐭
+        </div>
+
+
+        <h2 style="
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        ">
+            THE MEMORY DOES NOT ANSWER
+        </h2>
+
+
+        <p
+            id="wisdom-path-message"
+            style="
+                max-width: 650px;
+                margin: 0 auto 35px;
+                font-size: 19px;
+                line-height: 1.9;
+            "
+        >
+            Three symbols appear before Mushak.
+            None of them move.
+        </p>
+
+
+        <div style="
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        ">
+
+            <div style="
+                font-size: 65px;
+                padding: 25px;
+            ">
+                🪔
+            </div>
+
+            <div style="
+                font-size: 65px;
+                padding: 25px;
+            ">
+                🪷
+            </div>
+
+            <div style="
+                font-size: 65px;
+                padding: 25px;
+            ">
+                🐭
+            </div>
+
+        </div>
+
+
+        <p style="
+            font-size: 18px;
+            line-height: 1.8;
+        ">
+            Mushak finally understands:
+            <br>
+            <strong>
+                wisdom is knowing when to stop searching.
+            </strong>
+        </p>
+
+
+        <button
+            id="wisdom-path-continue"
+            style="
+                margin-top: 35px;
+                padding: 16px 35px;
+                cursor: pointer;
+            "
+        >
+            LISTEN TO THE SILENCE →
+        </button>
+
+
+        <div
+            id="wisdom-path-reveal"
+            style="
+                display: none;
+                margin-top: 40px;
+                padding: 30px;
+            "
+        >
+
+            <div style="
+                font-size: 55px;
+                margin-bottom: 20px;
+            ">
+                🪷
+            </div>
+
+            <h2>
+                THE ANSWER WAS INSIDE HIM
+            </h2>
+
+            <p style="
+                max-width: 650px;
+                margin: 20px auto;
+                line-height: 1.9;
+            ">
+                Mushak did not need another clue.
+                <br><br>
+                He needed to remember
+                <strong>who he was.</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CHAPTER 5 — FINAL REVELATION
+===================================================== -->
+
+<section
+    id="mushak-final-revelation"
+    style="display: none;"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-symbol">
+            🐭
+        </div>
+
+        <div class="chapter-kicker">
+            ✦ THE FINAL MEMORY ✦
+        </div>
+
+        <h1>
+            WHO WAS WAITING?
+        </h1>
+
+        <p>
+            Three paths. Three memories. One truth.
+        </p>
+
+    </div>
+
+
+    <div style="
+        max-width: 900px;
+        margin: 45px auto;
+        padding: 55px 40px;
+        text-align: center;
+        border: 1px solid rgba(218,181,86,.55);
+        border-radius: 28px;
+        background: radial-gradient(
+            circle at center,
+            rgba(50,45,90,.35),
+            rgba(3,8,25,.96)
+        );
+        box-shadow: 0 0 70px rgba(218,181,86,.14);
+    ">
+
+        <div style="
+            font-size: 90px;
+            margin-bottom: 25px;
+        ">
+            🐭
+        </div>
+
+
+        <h2 style="
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+        ">
+            THE ONE WHO REMEMBERED
+        </h2>
+
+
+        <p
+            id="final-revelation-message"
+            style="
+                max-width: 700px;
+                margin: auto;
+                font-size: 20px;
+                line-height: 2;
+            "
+        >
+            Three paths brought Mushak here.
+            But only now can he understand why.
+        </p>
+
+
+        <div style="
+            margin: 35px 0;
+            font-size: 32px;
+        ">
+            ✦　✧　🐭　✧　✦
+        </div>
+
+
+        <div
+            id="final-revelation-hidden"
+            style="display: none;"
+        >
+
+            <p style="
+                max-width: 700px;
+                margin: auto;
+                font-size: 20px;
+                line-height: 2;
+            ">
+
+                The memories were never asking
+                Mushak to find someone else.
+
+                <br><br>
+
+                They were showing him
+                <strong>
+                    who he had always been.
+                </strong>
+
+                <br><br>
+
+                The smallest companion was never
+                following the journey.
+
+                <br><br>
+
+                <strong>
+                    The journey was following Mushak.
+                </strong>
+
+            </p>
+
+
+            <div style="
+                margin: 40px 0;
+                font-size: 45px;
+            ">
+                🪔　🪷　🔥　🐭　✦
+            </div>
+
+
+            <h2>
+                THE LOST CHAPTERS WERE HIS MEMORIES
+            </h2>
+
+
+            <p style="
+                max-width: 650px;
+                margin: 25px auto;
+                line-height: 1.9;
+            ">
+
+                Memory showed him the past.
+
+                <br>
+
+                Courage showed him what he could face.
+
+                <br>
+
+                Wisdom showed him how to understand it.
+
+                <br><br>
+
+                And now Mushak remembers
+                the one memory that connects them all.
+
+            </p>
+
+
+            <button
+                id="final-chapter-complete"
+                style="
+                    margin-top: 30px;
+                    padding: 17px 40px;
+                    cursor: pointer;
+                "
+            >
+                COMPLETE THE LOST CHAPTERS →
+            </button>
+
+        </div>
+
+
+        <button
+            id="final-revelation-continue"
+            style="
+                margin-top: 30px;
+                padding: 17px 40px;
+                cursor: pointer;
+            "
+        >
+            DISCOVER THE LAST MEMORY →
+        </button>
+
+    </div>
+
+</section>
+
+    <!-- Story message -->
+
+    <div
+        id="mushak-exploration-message"
+        class="mushak-exploration-message"
+    >
+        Something is waiting in the darkness...
+    </div>
+
+
+    <!-- The actual world -->
+
+    <div
+        id="mushak-world"
+        class="mushak-world"
+    >
+
+        <!-- Atmospheric elements -->
+
+        <div class="mushak-world-moon">
+            ◐
+        </div>
+
+
+        <div class="mushak-tree tree-1">
+            🌳
+        </div>
+
+        <div class="mushak-tree tree-2">
+            🌳
+        </div>
+
+        <div class="mushak-tree tree-3">
+            🌳
+        </div>
+
+        <div class="mushak-tree tree-4">
+            🌳
+        </div>
+
+
+        <!-- Ancient shrine -->
+
+        <div
+            id="mushak-shrine"
+            class="mushak-shrine"
+        >
+            🏛️
+
+            <span>
+                ANCIENT SHRINE
+            </span>
+        </div>
+
+
+        <!-- Memory fragments -->
+
+        <button
+            class="mushak-memory"
+            data-memory="0"
+        >
+            💎
+        </button>
+
+        <button
+            class="mushak-memory"
+            data-memory="1"
+        >
+            💎
+        </button>
+
+        <button
+            class="mushak-memory"
+            data-memory="2"
+        >
+            💎
+        </button>
+
+
+        <!-- Mushak -->
+
+        <div
+            id="mushak-player"
+            class="mushak-player"
+        >
+            🐭
+        </div>
+
+
+        <!-- Small interaction hint -->
+
+        <div class="mushak-world-hint">
+            Move through the path and find the memories.
+        </div>
+
+    </div>
+
+
+    <!-- Desktop controls -->
+
+    <div class="mushak-control-hint">
+
+        <span>W A S D</span>
+        <span>or</span>
+        <span>ARROW KEYS</span>
+
+    </div>
+
+
+    <!-- Mobile controls -->
+
+    <div class="mushak-mobile-controls">
+
+        <button
+            class="mushak-move-button"
+            data-mushak-direction="up"
+        >
+            ▲
+        </button>
+
+        <div>
+
+            <button
+                class="mushak-move-button"
+                data-mushak-direction="left"
+            >
+                ◀
+            </button>
+
+            <button
+                class="mushak-move-button"
+                data-mushak-direction="down"
+            >
+                ▼
+            </button>
+
+            <button
+                class="mushak-move-button"
+                data-mushak-direction="right"
+            >
+                ▶
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+        <!-- Hidden story text used by JavaScript -->
+        <div
+            id="mushak-intro-text"
+            class="mushak-hidden-text"
+        >
+        </div>
+
+
+        <!-- Completion panel -->
+        <div
+            id="mushak-complete"
+            class="mushak-completion"
+            style="display: none;"
+        >
+
+            <div class="mushak-completion-icon">
+                🐭
+            </div>
+
+            <div class="mushak-completion-label">
+                ✦ JOURNEY COMPLETE ✦
+            </div>
+
+            <h2>
+                MUSHAK'S JOURNEY
+            </h2>
+
+            <p>
+                The memories have been restored.
+            </p>
+
+            <button
+                id="mushak-continue-button"
+                class="mushak-begin-button"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     STORY BOOK
+===================================================== -->
+
+<section
+    id="story-book"
+    style="display: none;"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-symbol">
+            📖
+        </div>
+
+        <div class="chapter-kicker">
+            ✦ THE RECOVERED MEMORIES ✦
+        </div>
+
+        <h1>
+            STORY BOOK
+        </h1>
+
+        <p>
+            The chapters that were lost are finally remembered.
+        </p>
+
+    </div>
+
+
+    <div class="story-book-container">
+
+
+        <!-- CHAPTER 1 -->
+
+        <article class="story-book-chapter">
+
+            <div class="story-book-icon">
+                💎
+            </div>
+
+            <div class="story-book-number">
+                CHAPTER 1
+            </div>
+
+            <h2>
+                THE BEGINNING
+            </h2>
+
+            <p>
+                Ganesha's journey begins with a creation
+                born from love and purpose.
+            </p>
+
+            <div class="story-book-moral">
+                🌿 Never underestimate yourself.
+            </div>
+
+        </article>
+
+
+        <!-- CHAPTER 2 -->
+
+        <article class="story-book-chapter">
+
+            <div class="story-book-icon">
+                🛡️
+            </div>
+
+            <div class="story-book-number">
+                CHAPTER 2
+            </div>
+
+            <h2>
+                THE GUARDIAN
+            </h2>
+
+            <p>
+                Ganesha stood as a guardian,
+                protecting what had been entrusted to him.
+            </p>
+
+            <div class="story-book-moral">
+                🌿 Do your duty with courage.
+            </div>
+
+        </article>
+
+
+        <!-- CHAPTER 3 -->
+
+        <article class="story-book-chapter">
+
+            <div class="story-book-icon">
+                卐
+            </div>
+
+            <div class="story-book-number">
+                CHAPTER 3
+            </div>
+
+            <h2>
+                THE TRANSFORMATION
+            </h2>
+
+            <p>
+                What was once broken was transformed.
+                The restored memory revealed that change
+                can become part of a greater journey.
+            </p>
+
+            <div class="story-book-moral">
+                🌿 Change can lead to growth.
+            </div>
+
+        </article>
+
+
+        <!-- CHAPTER 4 -->
+
+        <article class="story-book-chapter">
+
+            <div class="story-book-icon">
+                🪷
+            </div>
+
+            <div class="story-book-number">
+                CHAPTER 4
+            </div>
+
+            <h2>
+                THE WISDOM
+            </h2>
+
+            <p>
+                Wisdom is not only knowledge.
+                It is the patience to observe,
+                remember what matters,
+                and choose with understanding.
+            </p>
+
+            <div class="story-book-moral">
+                🌿 Wisdom begins with patience.
+            </div>
+
+        </article>
+
+
+        <!-- CHAPTER 5 -->
+
+        <article class="story-book-chapter story-book-final">
+
+            <div class="story-book-icon">
+                🐭
+            </div>
+
+            <div class="story-book-number">
+                CHAPTER 5
+            </div>
+
+            <h2>
+                MUSHAK'S JOURNEY
+            </h2>
+
+            <p>
+                Mushak followed three different paths:
+                Memory, Courage and Wisdom.
+            </p>
+
+            <p>
+                Each path revealed something different.
+                But together they revealed the final truth.
+            </p>
+
+            <div class="story-book-moral">
+                ✦ THE LOST CHAPTERS WERE HIS MEMORIES ✦
+            </div>
+
+        </article>
+
+
+        <!-- FINAL MESSAGE -->
+
+        <div class="story-book-ending">
+
+            <div class="story-book-ending-icon">
+                🐭
+            </div>
+
+            <h2>
+                THE STORY IS COMPLETE
+            </h2>
+
+            <p>
+                Five lost chapters.
+                Five recovered memories.
+                One journey.
+            </p>
+
+            <p>
+                And at the center of it all
+                was the smallest companion.
+            </p>
+
+            <div class="story-book-divider">
+                ✦　🪔　🪷　🐭　✦
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button id="story-book-back">
+        ← BACK TO MENU
+    </button>
+
+</section>
+
+<!-- =====================================================
+     LEADERBOARD
+===================================================== -->
+
+<section
+    id="leaderboard-screen"
+    style="display: none;"
+>
+
+    <div class="chapter-header">
+
+        <div class="chapter-symbol">
+            🏆
+        </div>
+
+        <div class="chapter-kicker">
+            ✦ THE MEMORY RECORD ✦
+        </div>
+
+        <h1>
+            LEADERBOARD
+        </h1>
+
+        <p>
+            Your journey through the lost chapters.
+        </p>
+
+    </div>
+
+
+    <!-- MAIN SCORE -->
+
+    <div class="leaderboard-main-card">
+
+        <div class="leaderboard-trophy">
+            🏆
+        </div>
+
+        <div class="leaderboard-label">
+            TOTAL MEMORY SCORE
+        </div>
+
+        <div
+            id="leaderboard-total-score"
+            class="leaderboard-score"
+        >
+            0
+        </div>
+
+        <div class="leaderboard-subtitle">
+            POINTS
+        </div>
+
+    </div>
+
+
+    <!-- STAT CARDS -->
+
+    <div class="leaderboard-stats">
+
+
+        <div class="leaderboard-stat-card">
+
+            <div class="leaderboard-stat-icon">
+                📖
+            </div>
+
+            <div
+                id="leaderboard-chapters"
+                class="leaderboard-stat-value"
+            >
+                0 / 5
+            </div>
+
+            <div class="leaderboard-stat-label">
+                CHAPTERS COMPLETED
+            </div>
+
+        </div>
+
+
+        <div class="leaderboard-stat-card">
+
+            <div class="leaderboard-stat-icon">
+                💎
+            </div>
+
+            <div
+                id="leaderboard-memories"
+                class="leaderboard-stat-value"
+            >
+                0
+            </div>
+
+            <div class="leaderboard-stat-label">
+                MEMORIES RECOVERED
+            </div>
+
+        </div>
+
+
+        <div class="leaderboard-stat-card">
+
+            <div class="leaderboard-stat-icon">
+                🐭
+            </div>
+
+            <div
+                id="leaderboard-mushak"
+                class="leaderboard-stat-value"
+            >
+                LOCKED
+            </div>
+
+            <div class="leaderboard-stat-label">
+                MUSHAK'S JOURNEY
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- CHAPTER BREAKDOWN -->
+
+    <div class="leaderboard-breakdown">
+
+        <div class="leaderboard-breakdown-title">
+            ✦ CHAPTER RECORD ✦
+        </div>
+
+
+        <div class="leaderboard-row">
+
+            <span>
+                💎 CHAPTER 1
+            </span>
+
+            <span id="leaderboard-chapter-1">
+                LOCKED
+            </span>
+
+        </div>
+
+
+        <div class="leaderboard-row">
+
+            <span>
+                🛡️ CHAPTER 2
+            </span>
+
+            <span id="leaderboard-chapter-2">
+                LOCKED
+            </span>
+
+        </div>
+
+
+        <div class="leaderboard-row">
+
+            <span>
+                卐 CHAPTER 3
+            </span>
+
+            <span id="leaderboard-chapter-3">
+                LOCKED
+            </span>
+
+        </div>
+
+
+        <div class="leaderboard-row">
+
+            <span>
+                🪷 CHAPTER 4
+            </span>
+
+            <span id="leaderboard-chapter-4">
+                LOCKED
+            </span>
+
+        </div>
+
+
+        <div class="leaderboard-row">
+
+            <span>
+                🐭 CHAPTER 5
+            </span>
+
+            <span id="leaderboard-chapter-5">
+                LOCKED
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL MESSAGE -->
+
+    <div
+        id="leaderboard-final-message"
+        class="leaderboard-final-message"
+    >
+        Recover all five memories to complete
+        the lost chapters.
+    </div>
+
+    <!-- GLOBAL ONLINE LEADERBOARD -->
+<div class="global-leaderboard">
+    <div class="leaderboard-breakdown-title">
+        🌐 ✦ GLOBAL LEADERBOARD ✦ 🌐
+    </div>
+
+    <p style="text-align:center; opacity:0.75; margin-bottom:20px;">
+        Players from every device
+    </p>
+
+    <div id="global-leaderboard-list">
+        <div style="text-align:center; padding:20px;">
+            Loading players...
+        </div>
+    </div>
+</div>
+
+
+    <button id="leaderboard-back">
+        ← BACK TO MENU
+    </button>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    const SUPABASE_URL = "https://rmykiwkgjtatjixozfon.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_9XxbxjMmtj8scfPvTbGNBA_P-V26Sy0";
+
+    const supabaseClient = supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+    console.log("☁️ Supabase client initialized!");
+</script>
+
+
+<script src="game.js"></script>
+
+</body>
+</html>
+

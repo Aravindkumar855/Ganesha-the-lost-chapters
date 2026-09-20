@@ -1,0 +1,4403 @@
+
+// ========================================
+// GAME STATE
+// ========================================
+
+let gameState = {
+    chaptersCompleted: 0,
+    memoryFragments: [],
+    score: 0,
+
+    completedChapters: {
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false
+    }
+};
+
+
+// ========================================
+// COMPLETE CHAPTER ONLY ONCE
+// ========================================
+
+function completeChapterOnce(chapterNumber, reward) {
+
+    // Already completed?
+    // Do NOT give the reward again.
+    if (gameState.completedChapters[chapterNumber]) {
+
+        console.log(
+            "Chapter",
+            chapterNumber,
+            "already completed. No reward added."
+        );
+
+        return false;
+    }
+
+
+    // Mark chapter as permanently completed
+    gameState.completedChapters[chapterNumber] = true;
+
+
+    // Give reward only once
+    gameState.score += reward;
+
+
+    // Never allow progress to go backwards
+    gameState.chaptersCompleted =
+        Math.max(
+            gameState.chaptersCompleted,
+            chapterNumber
+        );
+
+
+    console.log(
+        "Chapter",
+        chapterNumber,
+        "completed for the first time."
+    );
+
+    console.log(
+        "Reward:",
+        reward
+    );
+
+    console.log(
+        "Total Score:",
+        gameState.score
+    );
+
+
+    return true;
+}
+
+
+console.log("Ganesha — The Lost Chapters loaded!");
+
+
+// ========================================
+// STORY PROGRESS
+// ========================================
+
+function updateStoryProgress() {
+
+    const progressFill =
+        document.getElementById("progress-fill");
+
+    const progressText =
+        document.getElementById("progress-text");
+
+
+    if (progressFill) {
+
+        progressFill.style.width =
+            (gameState.chaptersCompleted / 5) * 100 + "%";
+
+    }
+
+
+    if (progressText) {
+
+        progressText.textContent =
+            gameState.chaptersCompleted +
+            " / 5 CHAPTERS";
+
+    }
+
+
+    // Keep chapter map visually synchronized
+    updateChapterMap();
+
+
+}
+
+
+// ========================================
+// UPDATE CHAPTER MAP
+// ========================================
+
+function updateChapterMap() {
+
+    // ------------------------------------
+    // CHAPTER 1
+    // ------------------------------------
+
+    const chapter1 =
+        document.getElementById("chapter-1");
+
+    if (chapter1) {
+
+        if (gameState.completedChapters[1]) {
+
+            chapter1.classList.remove("locked");
+            chapter1.classList.add("unlocked");
+            chapter1.classList.add("completed");
+
+            const icon =
+                chapter1.querySelector(".memory-icon");
+
+            const status =
+                chapter1.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "✅";
+            }
+
+            if (status) {
+                status.textContent = "COMPLETED";
+            }
+
+        }
+
+    }
+
+
+    // ------------------------------------
+    // CHAPTER 2
+    // ------------------------------------
+
+    const chapter2 =
+        document.getElementById("chapter-2");
+
+    if (chapter2) {
+
+        if (gameState.completedChapters[2]) {
+
+            chapter2.classList.remove("locked");
+            chapter2.classList.add("unlocked");
+            chapter2.classList.add("completed");
+
+            const icon =
+                chapter2.querySelector(".memory-icon");
+
+            const status =
+                chapter2.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "✅";
+            }
+
+            if (status) {
+                status.textContent = "COMPLETED";
+            }
+
+        }
+        else if (
+            gameState.chaptersCompleted >= 1
+        ) {
+
+            chapter2.classList.remove("locked");
+            chapter2.classList.add("unlocked");
+
+            const icon =
+                chapter2.querySelector(".memory-icon");
+
+            const status =
+                chapter2.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "💎";
+            }
+
+            if (status) {
+                status.textContent = "UNLOCKED";
+            }
+
+        }
+
+    }
+
+
+    // ------------------------------------
+    // CHAPTER 3
+    // ------------------------------------
+
+    const chapter3 =
+        document.getElementById("chapter-3");
+
+    if (chapter3) {
+
+        if (gameState.completedChapters[3]) {
+
+            chapter3.classList.remove("locked");
+            chapter3.classList.add("unlocked");
+            chapter3.classList.add("completed");
+
+            const icon =
+                chapter3.querySelector(".memory-icon");
+
+            const status =
+                chapter3.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "✅";
+            }
+
+            if (status) {
+                status.textContent = "✓ COMPLETED";
+            }
+
+        }
+        else if (
+            gameState.chaptersCompleted >= 2
+        ) {
+
+            chapter3.classList.remove("locked");
+            chapter3.classList.add("unlocked");
+
+            const icon =
+                chapter3.querySelector(".memory-icon");
+
+            const status =
+                chapter3.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "💎";
+            }
+
+            if (status) {
+                status.textContent = "UNLOCKED";
+            }
+
+        }
+
+    }
+
+
+    // ------------------------------------
+    // CHAPTER 4
+    // ------------------------------------
+
+    const chapter4 =
+        document.getElementById("chapter-4");
+
+    if (chapter4) {
+
+        if (gameState.completedChapters[4]) {
+
+            chapter4.classList.remove("locked");
+            chapter4.classList.add("unlocked");
+            chapter4.classList.add("completed");
+
+            const icon =
+                chapter4.querySelector(".memory-icon");
+
+            const status =
+                chapter4.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "✅";
+            }
+
+            if (status) {
+                status.textContent = "✓ COMPLETED";
+            }
+
+        }
+        else if (
+            gameState.chaptersCompleted >= 3
+        ) {
+
+            chapter4.classList.remove("locked");
+            chapter4.classList.add("unlocked");
+
+            const icon =
+                chapter4.querySelector(".memory-icon");
+
+            const status =
+                chapter4.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "💎";
+            }
+
+            if (status) {
+                status.textContent = "UNLOCKED";
+            }
+
+        }
+
+    }
+
+
+    // ------------------------------------
+    // CHAPTER 5
+    // ------------------------------------
+
+    const chapter5 =
+        document.getElementById("chapter-5");
+
+    if (chapter5) {
+
+        if (gameState.completedChapters[5]) {
+
+            chapter5.classList.remove("locked");
+            chapter5.classList.add("unlocked");
+            chapter5.classList.add("completed");
+
+            const icon =
+                chapter5.querySelector(".memory-icon");
+
+            const status =
+                chapter5.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "✅";
+            }
+
+            if (status) {
+                status.textContent = "✓ COMPLETED";
+            }
+
+        }
+        else if (
+            gameState.chaptersCompleted >= 4
+        ) {
+
+            chapter5.classList.remove("locked");
+            chapter5.classList.add("unlocked");
+
+            const icon =
+                chapter5.querySelector(".memory-icon");
+
+            const status =
+                chapter5.querySelector(".chapter-status");
+
+            if (icon) {
+                icon.textContent = "💎";
+            }
+
+            if (status) {
+                status.textContent = "UNLOCKED";
+            }
+
+        }
+
+    }
+
+}
+
+
+// ========================================
+// MEMORY FRAGMENT SYSTEM
+// ========================================
+
+function collectMemoryFragment(fragment) {
+
+    // Prevent duplicate memory fragments
+    if (
+        gameState.memoryFragments.includes(fragment)
+    ) {
+
+        console.log(
+            "Memory already collected:",
+            fragment
+        );
+
+        return false;
+    }
+
+
+    gameState.memoryFragments.push(fragment);
+
+
+    console.log(
+        "Memory Fragment Collected:",
+        fragment
+    );
+
+    console.log(
+        "Total Fragments:",
+        gameState.memoryFragments.length
+    );
+
+    console.log(
+        "Current Score:",
+        gameState.score
+    );
+
+
+    return true;
+}
+
+
+// ========================================
+// UNLOCK CHAPTER 2
+// ========================================
+
+function unlockChapter2() {
+
+    const chapter1 =
+        document.getElementById("chapter-1");
+
+    if (chapter1) {
+
+        chapter1.classList.remove("locked");
+        chapter1.classList.add("unlocked");
+        chapter1.classList.add("completed");
+
+        const icon =
+            chapter1.querySelector(".memory-icon");
+
+        const status =
+            chapter1.querySelector(".chapter-status");
+
+        if (icon) {
+            icon.textContent = "✅";
+        }
+
+        if (status) {
+            status.textContent = "COMPLETED";
+        }
+
+    }
+
+
+    const chapter2 =
+        document.getElementById("chapter-2");
+
+    if (chapter2) {
+
+        chapter2.classList.remove("locked");
+        chapter2.classList.add("unlocked");
+
+        const icon =
+            chapter2.querySelector(".memory-icon");
+
+        const status =
+            chapter2.querySelector(".chapter-status");
+
+        if (icon) {
+            icon.textContent = "💎";
+        }
+
+        if (status) {
+            status.textContent = "UNLOCKED";
+        }
+
+    }
+
+
+    updateStoryProgress();
+
+}
+
+
+// ========================================
+// UNLOCK CHAPTER 3
+// ========================================
+
+function unlockChapter3() {
+
+    const chapter3 =
+        document.getElementById("chapter-3");
+
+    if (!chapter3) {
+        return;
+    }
+
+
+    chapter3.classList.remove("locked");
+    chapter3.classList.add("unlocked");
+
+
+    const icon =
+        chapter3.querySelector(".memory-icon");
+
+    const status =
+        chapter3.querySelector(".chapter-status");
+
+
+    if (icon) {
+        icon.textContent = "💎";
+    }
+
+
+    if (status) {
+
+        if (gameState.completedChapters[3]) {
+            status.textContent = "✓ COMPLETED";
+        }
+        else {
+            status.textContent = "UNLOCKED";
+        }
+
+    }
+
+}
+
+
+// ========================================
+// UNLOCK CHAPTER 4
+// ========================================
+
+function unlockChapter4() {
+
+    const chapter4 =
+        document.getElementById("chapter-4");
+
+    if (!chapter4) {
+        return;
+    }
+
+
+    chapter4.classList.remove("locked");
+    chapter4.classList.add("unlocked");
+
+
+    const icon =
+        chapter4.querySelector(".memory-icon");
+
+    const status =
+        chapter4.querySelector(".chapter-status");
+
+
+    if (icon) {
+        icon.textContent = "💎";
+    }
+
+
+    if (status) {
+        status.textContent = "UNLOCKED";
+    }
+
+
+    console.log(
+        "Chapter 4 unlocked!"
+    );
+
+}
+
+
+// ========================================
+// MAIN MENU
+// ========================================
+
+const startButton =
+    document.getElementById("start-button");
+
+if (startButton) {
+
+    startButton.addEventListener(
+        "click",
+        function () {
+
+            document
+                .getElementById("main-menu")
+                .style.display = "none";
+
+            document
+                .getElementById("story-map")
+                .style.display = "block";
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// ========================================
+// STORY MAP
+// ========================================
+
+
+// ----------------------------------------
+// CHAPTER 1
+// ----------------------------------------
+
+const chapter1Button =
+    document.getElementById("chapter-1");
+
+if (chapter1Button) {
+
+    chapter1Button.addEventListener(
+        "click",
+        function () {
+
+            document
+                .getElementById("story-map")
+                .style.display = "none";
+
+            document
+                .getElementById("chapter-1-screen")
+                .style.display = "block";
+
+
+            // Reset only Chapter 1's
+            // temporary gameplay state.
+            // DO NOT reset score/progress.
+            startChapter1();
+
+        }
+    );
+
+}
+
+
+// ----------------------------------------
+// CHAPTER 2
+// ----------------------------------------
+
+const chapter2Button =
+    document.getElementById("chapter-2");
+
+if (chapter2Button) {
+
+    chapter2Button.addEventListener(
+        "click",
+        function () {
+
+            if (
+                gameState.chaptersCompleted >= 1
+            ) {
+
+                document
+                    .getElementById("story-map")
+                    .style.display = "none";
+
+                document
+                    .getElementById("chapter-2-screen")
+                    .style.display = "block";
+
+                startGuardianChapter();
+
+            }
+            else {
+
+                alert(
+                    "This chapter is locked.\n" +
+                    "Complete Chapter 1 first."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ----------------------------------------
+// CHAPTER 3
+// ----------------------------------------
+
+const chapter3Button =
+    document.getElementById("chapter-3");
+
+if (chapter3Button) {
+
+    chapter3Button.addEventListener(
+        "click",
+        function () {
+
+            if (
+                gameState.chaptersCompleted >= 2
+            ) {
+
+                document
+                    .getElementById("story-map")
+                    .style.display = "none";
+
+                document
+                    .getElementById("chapter-3-screen")
+                    .style.display = "block";
+
+                startTransformationChapter();
+
+            }
+            else {
+
+                alert(
+                    "This chapter is locked.\n" +
+                    "Complete Chapter 2 first."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ----------------------------------------
+// CHAPTER 4
+// ----------------------------------------
+
+// ----------------------------------------
+// CHAPTER 4
+// ----------------------------------------
+
+// ----------------------------------------
+// CHAPTER 4 — THE WISDOM
+// ----------------------------------------
+
+const chapter4Button =
+    document.getElementById("chapter-4");
+
+if (chapter4Button) {
+
+    chapter4Button.addEventListener(
+        "click",
+        function () {
+
+            if (
+                gameState.chaptersCompleted >= 3
+            ) {
+
+                const storyMap =
+                    document.getElementById("story-map");
+
+                const chapter4Screen =
+                    document.getElementById("chapter-4-screen");
+
+                if (storyMap) {
+                    storyMap.style.display = "none";
+                }
+
+                if (chapter4Screen) {
+                    chapter4Screen.style.display = "block";
+                }
+
+                startWisdomChapter();
+
+            }
+            else {
+
+                alert(
+                    "This chapter is locked.\n" +
+                    "Complete Chapter 3 first."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ----------------------------------------
+// CHAPTER 5
+// ----------------------------------------
+
+const chapter5Button =
+    document.getElementById("chapter-5");
+
+if (chapter5Button) {
+
+    chapter5Button.addEventListener(
+        "click",
+        function () {
+
+            if (
+                gameState.chaptersCompleted >= 4
+            ) {
+
+                alert(
+                    "🔓 CHAPTER 5 UNLOCKED!\n\n" +
+                    "The final chapter is ready for development."
+                );
+
+            }
+            else {
+
+                alert(
+                    "This chapter is locked.\n" +
+                    "Complete Chapter 4 first."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ========================================
+// BACK TO MENU
+// ========================================
+
+const backButton =
+    document.getElementById("back-button");
+
+if (backButton) {
+
+    backButton.addEventListener(
+        "click",
+        function () {
+
+            document
+                .getElementById("story-map")
+                .style.display = "none";
+
+            document
+                .getElementById("main-menu")
+                .style.display = "block";
+
+        }
+    );
+
+}
+
+
+// ========================================
+// CHAPTER 1 START / RESET
+// ========================================
+
+function startChapter1() {
+
+    // ------------------------------------
+    // Reset temporary Chapter 1 state
+    // ------------------------------------
+
+    memoryCollected = false;
+
+    cluesCollected = 0;
+
+    collectedClueOrder = [];
+
+    puzzleSequence = [];
+
+    correctPuzzleSequence = [];
+
+
+    // ------------------------------------
+    // Reset player position
+    // ------------------------------------
+
+    player.x = 50;
+    player.y = 50;
+
+
+    // ------------------------------------
+    // Reset clues
+    // ------------------------------------
+
+    for (let i = 1; i <= 3; i++) {
+
+        const clue =
+            document.getElementById("clue-" + i);
+
+        if (clue) {
+
+            clue.dataset.collected = "false";
+
+            clue.style.display = "block";
+
+        }
+
+    }
+
+
+    // ------------------------------------
+    // Reset memory fragment
+    // ------------------------------------
+
+    const fragment =
+        document.getElementById("memory-fragment");
+
+    if (fragment) {
+
+        fragment.style.display = "none";
+
+    }
+
+
+    // ------------------------------------
+    // Reset puzzle panel
+    // ------------------------------------
+
+    const puzzlePanel =
+        document.getElementById("puzzle-panel");
+
+    if (puzzlePanel) {
+
+        puzzlePanel.style.display = "none";
+
+    }
+
+
+    // ------------------------------------
+    // Reset puzzle status
+    // ------------------------------------
+
+    const puzzleStatus =
+        document.getElementById("puzzle-status");
+
+    if (puzzleStatus) {
+
+        puzzleStatus.textContent =
+            "Find all three clues first.";
+
+    }
+
+
+    updateClueCounter();
+
+    updatePlayer();
+
+}
+
+
+// ========================================
+// CHAPTER 1 BACK BUTTON
+// ========================================
+
+const chapter1Back =
+    document.getElementById("chapter-1-back");
+
+if (chapter1Back) {
+
+    chapter1Back.addEventListener(
+        "click",
+        function () {
+
+            document
+                .getElementById("chapter-1-screen")
+                .style.display = "none";
+
+            document
+                .getElementById("story-map")
+                .style.display = "block";
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// ========================================
+// PLAYER
+// ========================================
+
+let player = {
+
+    x: 50,
+
+    y: 50,
+
+    speed: 1.25
+
+};
+
+
+// ========================================
+// MEMORY COLLECTION
+// ========================================
+
+let memoryCollected = false;
+
+let cluesCollected = 0;
+
+
+// Stores clue collection order
+let collectedClueOrder = [];
+
+
+// Stores puzzle answer sequence
+let puzzleSequence = [];
+
+
+// ========================================
+// UPDATE PLAYER
+// ========================================
+
+function updatePlayer() {
+
+    const playerElement =
+        document.getElementById("player");
+
+    if (!playerElement) {
+        return;
+    }
+
+
+    playerElement.style.left =
+        player.x + "%";
+
+    playerElement.style.top =
+        player.y + "%";
+
+
+    checkClues();
+
+    checkMemoryFragment();
+
+}
+
+
+// ========================================
+// CHECK CLUES
+// ========================================
+
+function checkClues() {
+
+    const chapterScreen =
+        document.getElementById(
+            "chapter-1-screen"
+        );
+
+    const playerElement =
+        document.getElementById("player");
+
+
+    if (
+        !chapterScreen ||
+        chapterScreen.style.display !== "block" ||
+        !playerElement
+    ) {
+
+        return;
+
+    }
+
+
+    if (cluesCollected >= 3) {
+        return;
+    }
+
+
+    const playerRect =
+        playerElement.getBoundingClientRect();
+
+
+    const playerCenterX =
+        playerRect.left +
+        playerRect.width / 2;
+
+
+    const playerCenterY =
+        playerRect.top +
+        playerRect.height / 2;
+
+
+    for (let i = 1; i <= 3; i++) {
+
+        const clue =
+            document.getElementById(
+                "clue-" + i
+            );
+
+
+        if (
+            !clue ||
+            clue.dataset.collected === "true"
+        ) {
+
+            continue;
+
+        }
+
+
+        const clueRect =
+            clue.getBoundingClientRect();
+
+
+        const clueCenterX =
+            clueRect.left +
+            clueRect.width / 2;
+
+
+        const clueCenterY =
+            clueRect.top +
+            clueRect.height / 2;
+
+
+        const distanceX =
+            playerCenterX -
+            clueCenterX;
+
+
+        const distanceY =
+            playerCenterY -
+            clueCenterY;
+
+
+        if (
+            Math.abs(distanceX) <= 35 &&
+            Math.abs(distanceY) <= 45
+        ) {
+
+            clue.dataset.collected = "true";
+
+            clue.style.display = "none";
+
+            cluesCollected++;
+
+            collectedClueOrder.push(i);
+
+
+            console.log(
+                "Clue collection order:",
+                collectedClueOrder
+            );
+
+
+            updateClueCounter();
+
+
+            console.log(
+                "Clue collected:",
+                i,
+                "Total:",
+                cluesCollected
+            );
+
+
+            if (cluesCollected === 3) {
+
+                createPuzzleOrder();
+
+
+                const puzzlePanel =
+                    document.getElementById(
+                        "puzzle-panel"
+                    );
+
+
+                if (puzzlePanel) {
+
+                    puzzlePanel.style.display =
+                        "block";
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+// ========================================
+// UPDATE CLUE COUNTER
+// ========================================
+
+function updateClueCounter() {
+
+    const counter =
+        document.getElementById(
+            "clue-counter"
+        );
+
+
+    if (!counter) {
+        return;
+    }
+
+
+    counter.textContent =
+        "CLUES FOUND: " +
+        cluesCollected +
+        " / 3";
+
+}
+
+
+// ========================================
+// CHECK MEMORY FRAGMENT
+// ========================================
+
+function checkMemoryFragment() {
+
+    const chapterScreen =
+        document.getElementById(
+            "chapter-1-screen"
+        );
+
+    const playerElement =
+        document.getElementById("player");
+
+    const fragment =
+        document.getElementById(
+            "memory-fragment"
+        );
+
+
+    if (
+        !chapterScreen ||
+        chapterScreen.style.display !== "block"
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        !playerElement ||
+        !fragment ||
+        memoryCollected
+    ) {
+
+        return;
+
+    }
+
+
+    const playerRect =
+        playerElement.getBoundingClientRect();
+
+
+    const fragmentRect =
+        fragment.getBoundingClientRect();
+
+
+    const playerCenterX =
+        playerRect.left +
+        playerRect.width / 2;
+
+
+    const playerCenterY =
+        playerRect.top +
+        playerRect.height / 2;
+
+
+    const fragmentCenterX =
+        fragmentRect.left +
+        fragmentRect.width / 2;
+
+
+    const fragmentCenterY =
+        fragmentRect.top +
+        fragmentRect.height / 2;
+
+
+    const distanceX =
+        playerCenterX -
+        fragmentCenterX;
+
+
+    const distanceY =
+        playerCenterY -
+        fragmentCenterY;
+
+
+    const horizontalRange = 32;
+
+    const verticalRange = 50;
+
+
+    if (
+        Math.abs(distanceX) <= horizontalRange &&
+        Math.abs(distanceY) <= verticalRange
+    ) {
+
+        memoryCollected = true;
+
+
+        fragment.style.display = "none";
+
+
+        // --------------------------------
+        // Complete Chapter 1 ONCE
+        // --------------------------------
+
+        const firstCompletion =
+            completeChapterOnce(1, 100);
+
+
+        // --------------------------------
+        // Store memory fragment only once
+        // --------------------------------
+
+        collectMemoryFragment(
+            "Chapter 1 - The Beginning"
+        );
+
+
+        // --------------------------------
+        // Unlock Chapter 2
+        // --------------------------------
+
+        unlockChapter2();
+
+
+        // --------------------------------
+        // Show completion panel
+        // --------------------------------
+
+        const memoryPanel =
+            document.getElementById(
+                "memory-restored-panel"
+            );
+
+
+        if (memoryPanel) {
+
+            memoryPanel.style.display =
+                "flex";
+
+        }
+
+
+        console.log(
+            "Chapter 1 first completion:",
+            firstCompletion
+        );
+
+    }
+
+}
+
+
+// ========================================
+// KEYBOARD CONTROLS
+// ========================================
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "ArrowUp" ||
+            event.key.toLowerCase() === "w"
+        ) {
+
+            player.y -= player.speed;
+
+        }
+
+
+        if (
+            event.key === "ArrowDown" ||
+            event.key.toLowerCase() === "s"
+        ) {
+
+            player.y += player.speed;
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft" ||
+            event.key.toLowerCase() === "a"
+        ) {
+
+            player.x -= player.speed;
+
+        }
+
+
+        if (
+            event.key === "ArrowRight" ||
+            event.key.toLowerCase() === "d"
+        ) {
+
+            player.x += player.speed;
+
+        }
+
+
+        player.x =
+            Math.max(
+                5,
+                Math.min(95, player.x)
+            );
+
+
+        player.y =
+            Math.max(
+                5,
+                Math.min(95, player.y)
+            );
+
+
+        updatePlayer();
+
+    }
+);
+
+
+// ========================================
+// INITIAL PLAYER POSITION
+// ========================================
+
+updatePlayer();
+
+updateStoryProgress();
+
+
+// ========================================
+// MOBILE CONTROLS
+// ========================================
+
+let movingDirection = null;
+
+
+// ----------------------------------------
+// Start moving
+// ----------------------------------------
+
+function startMoving(direction) {
+
+    movingDirection = direction;
+
+}
+
+
+// ----------------------------------------
+// Stop moving
+// ----------------------------------------
+
+function stopMoving() {
+
+    movingDirection = null;
+
+}
+
+
+// ========================================
+// MOBILE MOVEMENT
+// ========================================
+
+function mobileMovement() {
+
+    const mobileSpeed = 0.90;
+
+
+    if (movingDirection === "up") {
+
+        player.y -= mobileSpeed;
+
+    }
+
+
+    if (movingDirection === "down") {
+
+        player.y += mobileSpeed;
+
+    }
+
+
+    if (movingDirection === "left") {
+
+        player.x -= mobileSpeed;
+
+    }
+
+
+    if (movingDirection === "right") {
+
+        player.x += mobileSpeed;
+
+    }
+
+
+    player.x =
+        Math.max(
+            5,
+            Math.min(95, player.x)
+        );
+
+
+    player.y =
+        Math.max(
+            5,
+            Math.min(95, player.y)
+        );
+
+
+    updatePlayer();
+
+}
+
+
+// ========================================
+// GAME LOOP
+// ========================================
+
+function gameLoop() {
+
+    mobileMovement();
+
+    requestAnimationFrame(gameLoop);
+
+}
+
+gameLoop();
+
+
+// ========================================
+// MOBILE BUTTONS
+// ========================================
+
+
+// ----------------------------------------
+// UP
+// ----------------------------------------
+
+const upButton =
+    document.getElementById("move-up");
+
+if (upButton) {
+
+    upButton.addEventListener(
+        "pointerdown",
+        function() {
+
+            startMoving("up");
+
+        }
+    );
+
+    upButton.addEventListener(
+        "pointerup",
+        stopMoving
+    );
+
+    upButton.addEventListener(
+        "pointerleave",
+        stopMoving
+    );
+
+    upButton.addEventListener(
+        "pointercancel",
+        stopMoving
+    );
+
+}
+
+
+// ----------------------------------------
+// DOWN
+// ----------------------------------------
+
+const downButton =
+    document.getElementById("move-down");
+
+if (downButton) {
+
+    downButton.addEventListener(
+        "pointerdown",
+        function() {
+
+            startMoving("down");
+
+        }
+    );
+
+    downButton.addEventListener(
+        "pointerup",
+        stopMoving
+    );
+
+    downButton.addEventListener(
+        "pointerleave",
+        stopMoving
+    );
+
+    downButton.addEventListener(
+        "pointercancel",
+        stopMoving
+    );
+
+}
+
+
+// ----------------------------------------
+// LEFT
+// ----------------------------------------
+
+const leftButton =
+    document.getElementById("move-left");
+
+if (leftButton) {
+
+    leftButton.addEventListener(
+        "pointerdown",
+        function() {
+
+            startMoving("left");
+
+        }
+    );
+
+    leftButton.addEventListener(
+        "pointerup",
+        stopMoving
+    );
+
+    leftButton.addEventListener(
+        "pointerleave",
+        stopMoving
+    );
+
+    leftButton.addEventListener(
+        "pointercancel",
+        stopMoving
+    );
+
+}
+
+
+// ----------------------------------------
+// RIGHT
+// ----------------------------------------
+
+const rightButton =
+    document.getElementById("move-right");
+
+if (rightButton) {
+
+    rightButton.addEventListener(
+        "pointerdown",
+        function() {
+
+            startMoving("right");
+
+        }
+    );
+
+    rightButton.addEventListener(
+        "pointerup",
+        stopMoving
+    );
+
+    rightButton.addEventListener(
+        "pointerleave",
+        stopMoving
+    );
+
+    rightButton.addEventListener(
+        "pointercancel",
+        stopMoving
+    );
+
+}
+
+
+// ========================================
+// PUZZLE SYMBOLS
+// ========================================
+
+let correctPuzzleSequence = [];
+
+
+const puzzleSymbols =
+    document.querySelectorAll(
+        ".puzzle-symbol"
+    );
+
+
+// ----------------------------------------
+// Convert clue number into symbol ID
+// ----------------------------------------
+
+function getSymbolId(clueNumber) {
+
+    if (clueNumber === 1) {
+        return "symbol-lamp";
+    }
+
+
+    if (clueNumber === 2) {
+        return "symbol-trident";
+    }
+
+
+    if (clueNumber === 3) {
+        return "symbol-scroll";
+    }
+
+}
+
+
+// ----------------------------------------
+// Create puzzle answer
+// ----------------------------------------
+
+function createPuzzleOrder() {
+
+    correctPuzzleSequence =
+        collectedClueOrder.map(
+            getSymbolId
+        );
+
+
+    puzzleSequence = [];
+
+
+    console.log(
+        "Dynamic puzzle order:",
+        correctPuzzleSequence
+    );
+
+}
+
+
+// ----------------------------------------
+// Puzzle button clicks
+// ----------------------------------------
+
+puzzleSymbols.forEach(
+    function(symbol) {
+
+        symbol.addEventListener(
+            "click",
+            function() {
+
+                puzzleSequence.push(
+                    symbol.id
+                );
+
+
+                const currentStep =
+                    puzzleSequence.length - 1;
+
+
+                // ------------------------
+                // Wrong answer
+                // ------------------------
+
+                if (
+                    puzzleSequence[currentStep] !==
+                    correctPuzzleSequence[currentStep]
+                ) {
+
+                    puzzleSequence = [];
+
+
+                    const status =
+                        document.getElementById(
+                            "puzzle-status"
+                        );
+
+
+                    if (status) {
+
+                        status.textContent =
+                            "❌ Wrong order! Try again.";
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                // ------------------------
+                // Correct but not finished
+                // ------------------------
+
+                if (
+                    puzzleSequence.length <
+                    correctPuzzleSequence.length
+                ) {
+
+                    const status =
+                        document.getElementById(
+                            "puzzle-status"
+                        );
+
+
+                    if (status) {
+
+                        status.textContent =
+                            "✨ Correct! Continue...";
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                // ------------------------
+                // Puzzle solved
+                // ------------------------
+
+                const status =
+                    document.getElementById(
+                        "puzzle-status"
+                    );
+
+
+                if (status) {
+
+                    status.textContent =
+                        "✅ PUZZLE SOLVED!";
+
+                }
+
+
+                const fragment =
+                    document.getElementById(
+                        "memory-fragment"
+                    );
+
+
+                if (fragment) {
+
+                    fragment.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+// ========================================
+// MEMORY PANEL - CONTINUE
+// ========================================
+
+const continueMemory =
+    document.getElementById(
+        "continue-memory"
+    );
+
+
+if (continueMemory) {
+
+    continueMemory.addEventListener(
+        "click",
+        function() {
+
+            const memoryPanel =
+                document.getElementById(
+                    "memory-restored-panel"
+                );
+
+
+            if (memoryPanel) {
+
+                memoryPanel.style.display =
+                    "none";
+
+            }
+
+
+            const chapter1Screen =
+                document.getElementById(
+                    "chapter-1-screen"
+                );
+
+
+            if (chapter1Screen) {
+
+                chapter1Screen.style.display =
+                    "none";
+
+            }
+
+
+            const storyMap =
+                document.getElementById(
+                    "story-map"
+                );
+
+
+            if (storyMap) {
+
+                storyMap.style.display =
+                    "block";
+
+            }
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// ========================================
+// CHAPTER 2 — THE GUARDIAN GAME
+// ========================================
+
+let guardianWave = 1;
+
+let guardianScore = 0;
+
+let guardianLives = 3;
+
+let guardianActive = false;
+
+let guardianExpectedSymbol = null;
+
+let guardianTimer = null;
+
+
+// ========================================
+// START CHAPTER 2
+// ========================================
+
+function startGuardianChapter() {
+
+    guardianWave = 1;
+
+    guardianScore = 0;
+
+    guardianLives = 3;
+
+    guardianActive = true;
+
+
+    const completePanel =
+        document.getElementById(
+            "guardian-complete"
+        );
+
+
+    if (completePanel) {
+
+        completePanel.style.display =
+            "none";
+
+    }
+
+
+    updateGuardianUI();
+
+    startGuardianWave();
+
+}
+
+
+// ========================================
+// START WAVE
+// ========================================
+
+function startGuardianWave() {
+
+    if (!guardianActive) {
+        return;
+    }
+
+
+    if (guardianWave > 5) {
+
+        completeGuardianChapter();
+
+        return;
+
+    }
+
+
+    const symbols = [
+        "lamp",
+        "trident",
+        "scroll"
+    ];
+
+
+    guardianExpectedSymbol =
+        symbols[
+            Math.floor(
+                Math.random() *
+                symbols.length
+            )
+        ];
+
+
+    const message =
+        document.getElementById(
+            "guardian-message"
+        );
+
+
+    const waveObject =
+        document.getElementById(
+            "guardian-wave-object"
+        );
+
+
+    let symbolText = "🪔";
+
+
+    if (
+        guardianExpectedSymbol ===
+        "trident"
+    ) {
+
+        symbolText = "🔱";
+
+    }
+
+
+    if (
+        guardianExpectedSymbol ===
+        "scroll"
+    ) {
+
+        symbolText = "📜";
+
+    }
+
+
+    if (message) {
+
+        message.textContent =
+            "BLOCK THIS: " +
+            symbolText;
+
+    }
+
+
+    if (waveObject) {
+
+        waveObject.textContent = "✦";
+
+
+        waveObject.classList.remove(
+            "guardian-wave-active"
+        );
+
+
+        void waveObject.offsetWidth;
+
+
+        waveObject.classList.add(
+            "guardian-wave-active"
+        );
+
+    }
+
+
+    clearTimeout(guardianTimer);
+
+
+    guardianTimer =
+        setTimeout(
+            function() {
+
+                guardianMissed();
+
+            },
+            2400
+        );
+
+}
+
+
+// ========================================
+// SYMBOL BUTTONS
+// ========================================
+
+document
+    .querySelectorAll(".guardian-symbol")
+    .forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    if (!guardianActive) {
+                        return;
+                    }
+
+
+                    const selectedSymbol =
+                        button.dataset.symbol;
+
+
+                    if (
+                        selectedSymbol ===
+                        guardianExpectedSymbol
+                    ) {
+
+                        guardianSuccess();
+
+                    }
+                    else {
+
+                        guardianMissed();
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+// ========================================
+// SUCCESS
+// ========================================
+
+function guardianSuccess() {
+
+    clearTimeout(guardianTimer);
+
+
+    guardianScore += 100;
+
+    guardianWave++;
+
+
+    updateGuardianUI();
+
+
+    const message =
+        document.getElementById(
+            "guardian-message"
+        );
+
+
+    if (message) {
+
+        message.textContent =
+            "✨ PERFECT! The gate is protected.";
+
+    }
+
+
+    const waveObject =
+        document.getElementById(
+            "guardian-wave-object"
+        );
+
+
+    if (waveObject) {
+
+        waveObject.classList.remove(
+            "guardian-wave-active"
+        );
+
+    }
+
+
+    setTimeout(
+        function() {
+
+            startGuardianWave();
+
+        },
+        700
+    );
+
+}
+
+
+// ========================================
+// MISSED / WRONG SYMBOL
+// ========================================
+
+function guardianMissed() {
+
+    clearTimeout(guardianTimer);
+
+
+    guardianLives--;
+
+
+    updateGuardianUI();
+
+
+    const message =
+        document.getElementById(
+            "guardian-message"
+        );
+
+
+    if (message) {
+
+        message.textContent =
+            "⚠️ The guardian gate was weakened!";
+
+    }
+
+
+    const waveObject =
+        document.getElementById(
+            "guardian-wave-object"
+        );
+
+
+    if (waveObject) {
+
+        waveObject.classList.remove(
+            "guardian-wave-active"
+        );
+
+    }
+
+
+    if (guardianLives <= 0) {
+
+        guardianActive = false;
+
+
+        setTimeout(
+            function() {
+
+                alert(
+                    "🛡️ THE GATE HAS FALLEN!\n\n" +
+                    "Try again and protect the sacred entrance."
+                );
+
+
+                startGuardianChapter();
+
+            },
+            500
+        );
+
+
+        return;
+
+    }
+
+
+    setTimeout(
+        function() {
+
+            startGuardianWave();
+
+        },
+        700
+    );
+
+}
+
+
+// ========================================
+// UPDATE GUARDIAN UI
+// ========================================
+
+function updateGuardianUI() {
+
+    const wave =
+        document.getElementById(
+            "guardian-wave"
+        );
+
+
+    const score =
+        document.getElementById(
+            "guardian-score"
+        );
+
+
+    const lives =
+        document.getElementById(
+            "guardian-lives"
+        );
+
+
+    if (wave) {
+
+        wave.textContent =
+            "WAVE " +
+            Math.min(
+                guardianWave,
+                5
+            ) +
+            " / 5";
+
+    }
+
+
+    if (score) {
+
+        score.textContent =
+            "SCORE: " +
+            guardianScore;
+
+    }
+
+
+    if (lives) {
+
+        let hearts = "";
+
+
+        for (
+            let i = 0;
+            i < guardianLives;
+            i++
+        ) {
+
+            hearts += "❤️ ";
+
+        }
+
+
+        lives.textContent =
+            hearts || "💔";
+
+    }
+
+}
+
+
+// ========================================
+// COMPLETE CHAPTER 2
+// ========================================
+
+function completeGuardianChapter() {
+
+    guardianActive = false;
+
+    clearTimeout(guardianTimer);
+
+
+    /*
+       Chapter 2 gives its main game reward
+       only ONCE.
+
+       Replay does not increase the
+       permanent game score again.
+    */
+
+    const firstCompletion =
+        completeChapterOnce(2, 250);
+
+
+    // ------------------------------------
+    // Complete Chapter 2 visually
+    // ------------------------------------
+
+    markChapter2Completed();
+
+
+    // ------------------------------------
+    // Unlock Chapter 3
+    // ------------------------------------
+
+    unlockChapter3();
+
+
+    updateStoryProgress();
+
+
+    updateGuardianUI();
+
+
+    console.log(
+        "Chapter 2 first completion:",
+        firstCompletion
+    );
+
+
+    // ------------------------------------
+    // Show completion panel
+    // ------------------------------------
+
+    const panel =
+        document.getElementById(
+            "guardian-complete"
+        );
+
+
+    if (panel) {
+
+        panel.style.display =
+            "flex";
+
+    }
+
+}
+
+
+// ========================================
+// MARK CHAPTER 2 COMPLETED
+// ========================================
+
+function markChapter2Completed() {
+
+    const chapter2 =
+        document.getElementById(
+            "chapter-2"
+        );
+
+
+    if (!chapter2) {
+        return;
+    }
+
+
+    chapter2.classList.remove(
+        "locked"
+    );
+
+
+    chapter2.classList.add(
+        "unlocked"
+    );
+
+
+    chapter2.classList.add(
+        "completed"
+    );
+
+
+    const icon =
+        chapter2.querySelector(
+            ".memory-icon"
+        );
+
+
+    const status =
+        chapter2.querySelector(
+            ".chapter-status"
+        );
+
+
+    if (icon) {
+
+        icon.textContent = "✅";
+
+    }
+
+
+    if (status) {
+
+        status.textContent =
+            "COMPLETED";
+
+    }
+
+}
+
+
+// ========================================
+// CONTINUE FROM CHAPTER 2
+// ========================================
+
+const continueGuardian =
+    document.getElementById(
+        "continue-guardian"
+    );
+
+
+if (continueGuardian) {
+
+    continueGuardian.addEventListener(
+        "click",
+        function() {
+
+            const panel =
+                document.getElementById(
+                    "guardian-complete"
+                );
+
+
+            if (panel) {
+
+                panel.style.display =
+                    "none";
+
+            }
+
+
+            const chapter2Screen =
+                document.getElementById(
+                    "chapter-2-screen"
+                );
+
+
+            if (chapter2Screen) {
+
+                chapter2Screen.style.display =
+                    "none";
+
+            }
+
+
+            const storyMap =
+                document.getElementById(
+                    "story-map"
+                );
+
+
+            if (storyMap) {
+
+                storyMap.style.display =
+                    "block";
+
+            }
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// ========================================
+// CHAPTER 2 BACK BUTTON
+// ========================================
+
+const chapter2Back =
+    document.getElementById(
+        "chapter-2-back"
+    );
+
+
+if (chapter2Back) {
+
+    chapter2Back.addEventListener(
+        "click",
+        function() {
+
+            guardianActive = false;
+
+
+            clearTimeout(
+                guardianTimer
+            );
+
+
+            const chapter2Screen =
+                document.getElementById(
+                    "chapter-2-screen"
+                );
+
+
+            const storyMap =
+                document.getElementById(
+                    "story-map"
+                );
+
+
+            if (chapter2Screen) {
+
+                chapter2Screen.style.display =
+                    "none";
+
+            }
+
+
+            if (storyMap) {
+
+                storyMap.style.display =
+                    "block";
+
+            }
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// =========================================================
+// CHAPTER 3 — THE TRANSFORMATION
+// =========================================================
+
+let transformationMoves = 0;
+
+let transformationRotations =
+    [0, 0, 0, 0];
+
+let transformationActive = false;
+
+let transformationCompleted = false;
+
+
+// ---------------------------------------------------------
+// START CHAPTER 3
+// ---------------------------------------------------------
+
+function startTransformationChapter() {
+
+    transformationMoves = 0;
+
+    transformationActive = true;
+
+
+    /*
+       IMPORTANT:
+
+       We DO NOT reset transformationCompleted here.
+
+       The player can replay Chapter 3,
+       but its reward must only be given once.
+    */
+
+
+    transformationRotations =
+        [90, 180, 270, 90];
+
+
+    const completePanel =
+        document.getElementById(
+            "transformation-complete"
+        );
+
+
+    if (completePanel) {
+
+        completePanel.style.display =
+            "none";
+
+    }
+
+
+    const puzzle =
+        document.getElementById(
+            "seal-puzzle"
+        );
+
+
+    if (puzzle) {
+
+        puzzle.classList.remove(
+            "seal-solved"
+        );
+
+    }
+
+
+    const message =
+        document.getElementById(
+            "transformation-message"
+        );
+
+
+    if (message) {
+
+        message.textContent =
+            "Rotate the four pieces to restore the sacred symbol.";
+
+
+        message.classList.remove(
+            "success"
+        );
+
+    }
+
+
+    updateTransformationUI();
+
+    applyTransformationRotations();
+
+    updateCorrectPieces();
+
+}
+
+
+// ---------------------------------------------------------
+// APPLY ROTATIONS
+// ---------------------------------------------------------
+
+function applyTransformationRotations() {
+
+    const pieces =
+        document.querySelectorAll(
+            ".seal-piece"
+        );
+
+
+    pieces.forEach(
+        function(piece) {
+
+            const index =
+                Number(
+                    piece.dataset.index
+                );
+
+
+            const svg =
+                piece.querySelector(
+                    ".piece-svg"
+                );
+
+
+            if (svg) {
+
+                svg.style.transform =
+                    "rotate(" +
+                    transformationRotations[index] +
+                    "deg)";
+
+            }
+
+        }
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// UPDATE CORRECT PIECES
+// ---------------------------------------------------------
+
+function updateCorrectPieces() {
+
+    const pieces =
+        document.querySelectorAll(
+            ".seal-piece"
+        );
+
+
+    pieces.forEach(
+        function(piece) {
+
+            const index =
+                Number(
+                    piece.dataset.index
+                );
+
+
+            if (
+                transformationRotations[index] ===
+                0
+            ) {
+
+                piece.classList.add(
+                    "piece-correct"
+                );
+
+            }
+            else {
+
+                piece.classList.remove(
+                    "piece-correct"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// UPDATE MOVES
+// ---------------------------------------------------------
+
+function updateTransformationUI() {
+
+    const moves =
+        document.getElementById(
+            "transformation-moves"
+        );
+
+
+    if (moves) {
+
+        moves.textContent =
+            "MOVES: " +
+            transformationMoves;
+
+    }
+
+}
+
+
+// ---------------------------------------------------------
+// ROTATE ONE PIECE
+// ---------------------------------------------------------
+
+function rotateTransformationPiece(index) {
+
+    if (!transformationActive) {
+        return;
+    }
+
+
+    if (
+        index < 0 ||
+        index > 3
+    ) {
+
+        return;
+
+    }
+
+
+    transformationRotations[index] += 90;
+
+
+    if (
+        transformationRotations[index] >=
+        360
+    ) {
+
+        transformationRotations[index] = 0;
+
+    }
+
+
+    transformationMoves++;
+
+
+    const piece =
+        document.querySelector(
+            '.seal-piece[data-index="' +
+            index +
+            '"]'
+        );
+
+
+    if (piece) {
+
+        const svg =
+            piece.querySelector(
+                ".piece-svg"
+            );
+
+
+        if (svg) {
+
+            svg.style.transform =
+                "rotate(" +
+                transformationRotations[index] +
+                "deg)";
+
+        }
+
+    }
+
+
+    updateTransformationUI();
+
+    updateCorrectPieces();
+
+    checkTransformationPuzzle();
+
+}
+
+
+// ---------------------------------------------------------
+// CHECK PUZZLE
+// ---------------------------------------------------------
+
+function checkTransformationPuzzle() {
+
+    for (
+        let i = 0;
+        i < transformationRotations.length;
+        i++
+    ) {
+
+        if (
+            transformationRotations[i] !== 0
+        ) {
+
+            return;
+
+        }
+
+    }
+
+
+    completeTransformationChapter();
+
+}
+
+
+// ---------------------------------------------------------
+// COMPLETE CHAPTER 3
+// ---------------------------------------------------------
+
+function completeTransformationChapter() {
+
+    if (!transformationActive) {
+        return;
+    }
+
+
+    transformationActive = false;
+
+
+    const puzzle =
+        document.getElementById(
+            "seal-puzzle"
+        );
+
+
+    if (puzzle) {
+
+        puzzle.classList.add(
+            "seal-solved"
+        );
+
+    }
+
+
+    const message =
+        document.getElementById(
+            "transformation-message"
+        );
+
+
+    if (message) {
+
+        message.textContent =
+            "✨ THE SACRED SWASTIK HAS BEEN RESTORED!";
+
+
+        message.classList.add(
+            "success"
+        );
+
+    }
+
+
+    // ------------------------------------
+    // PERMANENT CHAPTER 3 COMPLETION
+    // ------------------------------------
+
+    const firstCompletion =
+        completeChapterOnce(3, 300);
+
+
+    /*
+       IMPORTANT:
+
+       These functions are outside the
+       first-completion condition.
+
+       Therefore the map is corrected
+       even if the chapter is replayed.
+    */
+
+    transformationCompleted = true;
+
+
+    // Mark Chapter 3 completed
+    markChapter3Completed();
+
+
+    // Unlock Chapter 4
+    unlockChapter4();
+
+
+    // Update progress
+    updateStoryProgress();
+
+
+    console.log(
+        "Chapter 3 first completion:",
+        firstCompletion
+    );
+
+
+    // ------------------------------------
+    // SHOW COMPLETION PANEL
+    // ------------------------------------
+
+    setTimeout(
+        function() {
+
+            const completePanel =
+                document.getElementById(
+                    "transformation-complete"
+                );
+
+
+            if (completePanel) {
+
+                completePanel.style.display =
+                    "flex";
+
+            }
+
+        },
+        900
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// MARK CHAPTER 3 COMPLETED
+// ---------------------------------------------------------
+
+function markChapter3Completed() {
+
+    /*
+       Use ID instead of:
+       .map-chapter[data-chapter="3"]
+
+       This matches the structure used
+       by your Chapter 1 and Chapter 2.
+    */
+
+    const chapter3 =
+        document.getElementById(
+            "chapter-3"
+        );
+
+
+    if (!chapter3) {
+
+        console.log(
+            "Chapter 3 map element not found."
+        );
+
+        return;
+
+    }
+
+
+    chapter3.classList.remove(
+        "locked"
+    );
+
+
+    chapter3.classList.add(
+        "unlocked"
+    );
+
+
+    chapter3.classList.add(
+        "completed"
+    );
+
+
+    const icon =
+        chapter3.querySelector(
+            ".memory-icon"
+        );
+
+
+    const status =
+        chapter3.querySelector(
+            ".chapter-status"
+        );
+
+
+    if (icon) {
+
+        icon.textContent =
+            "✅";
+
+    }
+
+
+    if (status) {
+
+        status.textContent =
+            "✓ COMPLETED";
+
+    }
+
+
+    console.log(
+        "Chapter 3 marked COMPLETED."
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// UNLOCK CHAPTER 4
+// ---------------------------------------------------------
+
+function unlockChapter4() {
+
+    const chapter4 =
+        document.getElementById(
+            "chapter-4"
+        );
+
+
+    if (!chapter4) {
+
+        console.log(
+            "Chapter 4 map element not found."
+        );
+
+        return;
+
+    }
+
+
+    chapter4.classList.remove(
+        "locked"
+    );
+
+
+    chapter4.classList.add(
+        "unlocked"
+    );
+
+
+    const icon =
+        chapter4.querySelector(
+            ".memory-icon"
+        );
+
+
+    const status =
+        chapter4.querySelector(
+            ".chapter-status"
+        );
+
+
+    if (icon) {
+
+        icon.textContent =
+            "💎";
+
+    }
+
+
+    if (status) {
+
+        status.textContent =
+            "UNLOCKED";
+
+    }
+
+
+    console.log(
+        "Chapter 4 marked UNLOCKED."
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// SETUP CHAPTER 3 PUZZLE
+// ---------------------------------------------------------
+
+function setupTransformationPieces() {
+
+    const pieces =
+        document.querySelectorAll(
+            ".seal-piece"
+        );
+
+
+    pieces.forEach(
+        function(piece) {
+
+            if (
+                piece.dataset.transformationReady ===
+                "true"
+            ) {
+
+                return;
+
+            }
+
+
+            piece.dataset.transformationReady =
+                "true";
+
+
+            piece.addEventListener(
+                "click",
+                function() {
+
+                    const index =
+                        Number(
+                            piece.dataset.index
+                        );
+
+
+                    rotateTransformationPiece(
+                        index
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// CONTINUE AFTER CHAPTER 3
+// ---------------------------------------------------------
+
+const continueTransformation =
+    document.getElementById(
+        "continue-transformation"
+    );
+
+
+if (continueTransformation) {
+
+    continueTransformation.addEventListener(
+        "click",
+        function() {
+
+            const completePanel =
+                document.getElementById(
+                    "transformation-complete"
+                );
+
+
+            const chapter3 =
+                document.getElementById(
+                    "chapter-3-screen"
+                );
+
+
+            const storyMap =
+                document.getElementById(
+                    "story-map"
+                );
+
+
+            if (completePanel) {
+
+                completePanel.style.display =
+                    "none";
+
+            }
+
+
+            if (chapter3) {
+
+                chapter3.style.display =
+                    "none";
+
+            }
+
+
+            if (storyMap) {
+
+                storyMap.style.display =
+                    "block";
+
+            }
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// BACK TO STORY MAP
+// ---------------------------------------------------------
+
+const chapter3Back =
+    document.getElementById(
+        "chapter-3-back"
+    );
+
+
+if (chapter3Back) {
+
+    chapter3Back.addEventListener(
+        "click",
+        function() {
+
+            transformationActive = false;
+
+
+            const chapter3 =
+                document.getElementById(
+                    "chapter-3-screen"
+                );
+
+
+            const storyMap =
+                document.getElementById(
+                    "story-map"
+                );
+
+
+            const completePanel =
+                document.getElementById(
+                    "transformation-complete"
+                );
+
+
+            if (completePanel) {
+
+                completePanel.style.display =
+                    "none";
+
+            }
+
+
+            if (chapter3) {
+
+                chapter3.style.display =
+                    "none";
+
+            }
+
+
+            if (storyMap) {
+
+                storyMap.style.display =
+                    "block";
+
+            }
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// ---------------------------------------------------------
+// INITIALIZE CHAPTER 3
+// ---------------------------------------------------------
+
+if (
+    document.readyState === "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        setupTransformationPieces
+    );
+
+}
+else {
+
+    setupTransformationPieces();
+
+}
+
+
+// ========================================
+// RESTART WHOLE GAME
+// ========================================
+
+function restartWholeGame() {
+
+    const confirmRestart =
+        confirm(
+            "Are you sure you want to restart the whole story?\n\n" +
+            "Your score, completed chapters and memories will be reset."
+        );
+
+
+    if (!confirmRestart) {
+        return;
+    }
+
+
+    gameState = {
+
+        chaptersCompleted: 0,
+
+        memoryFragments: [],
+
+        score: 0,
+
+        completedChapters: {
+
+            1: false,
+            2: false,
+            3: false,
+            4: false,
+            5: false
+
+        }
+
+    };
+
+
+    // Reset chapter completion variables
+    transformationCompleted = false;
+
+
+    // Reset Chapter 1
+    startChapter1();
+
+
+    // Reset Chapter 2
+    guardianWave = 1;
+    guardianScore = 0;
+    guardianLives = 3;
+    guardianActive = false;
+
+
+    // Reset Chapter 3
+    transformationMoves = 0;
+    transformationRotations =
+        [0, 0, 0, 0];
+    transformationActive = false;
+
+
+    // Return to main menu
+    document
+        .getElementById("story-map")
+        .style.display = "none";
+
+
+    document
+        .getElementById("chapter-1-screen")
+        .style.display = "none";
+
+
+    document
+        .getElementById("chapter-2-screen")
+        .style.display = "none";
+
+
+    document
+        .getElementById("chapter-3-screen")
+        .style.display = "none";
+
+
+    const mainMenu =
+        document.getElementById(
+            "main-menu"
+        );
+
+
+    if (mainMenu) {
+
+        mainMenu.style.display =
+            "block";
+
+    }
+
+
+    updateStoryProgress();
+
+
+    console.log(
+        "WHOLE GAME RESTARTED."
+    );
+
+}
+// =========================================================
+// CHAPTER 4 — THE WISDOM
+// =========================================================
+
+let wisdomTrial = 1;
+let wisdomScore = 0;
+let wisdomActive = false;
+
+let wisdomSequence = [];
+let wisdomSequencePosition = 0;
+
+let wisdomMemorySequence = [];
+let wisdomMissingSymbol = null;
+
+
+// =========================================================
+// FESTIVAL SYMBOLS
+// =========================================================
+
+const wisdomSymbols = [
+    "🪔",
+    "🌸",
+    "🍬",
+    "🌿"
+];
+
+
+// =========================================================
+// START CHAPTER 4
+// =========================================================
+
+function startWisdomChapter() {
+
+    wisdomTrial = 1;
+    wisdomScore = 0;
+    wisdomActive = true;
+
+    const completePanel =
+        document.getElementById(
+            "wisdom-complete"
+        );
+
+    if (completePanel) {
+        completePanel.style.display = "none";
+    }
+
+    updateWisdomUI();
+
+    showWisdomTrial1();
+
+}
+
+
+// =========================================================
+// UPDATE CHAPTER 4 UI
+// =========================================================
+
+function updateWisdomUI() {
+
+    const trial =
+        document.getElementById(
+            "wisdom-trial"
+        );
+
+    const score =
+        document.getElementById(
+            "wisdom-score"
+        );
+
+    if (trial) {
+
+        trial.textContent =
+            "TRIAL " +
+            Math.min(wisdomTrial, 3) +
+            " / 3";
+
+    }
+
+    if (score) {
+
+        score.textContent =
+            "WISDOM: " +
+            wisdomScore;
+
+    }
+
+}
+
+
+// =========================================================
+// SHOW TRIAL 1
+// =========================================================
+
+function showWisdomTrial1() {
+
+    wisdomTrial = 1;
+
+    updateWisdomUI();
+
+    document
+        .getElementById("wisdom-trial-1")
+        .style.display = "block";
+
+    document
+        .getElementById("wisdom-trial-2")
+        .style.display = "none";
+
+    document
+        .getElementById("wisdom-trial-3")
+        .style.display = "none";
+
+
+    document
+        .getElementById("wisdom-title")
+        .textContent =
+        "THE FIRST TEACHING";
+
+
+    document
+        .getElementById("wisdom-message")
+        .textContent =
+        "Observe carefully. Some memories reveal themselves only to those who pay attention.";
+
+
+    const display =
+        document.getElementById(
+            "wisdom-sequence-display"
+        );
+
+    const options =
+        document.getElementById(
+            "wisdom-sequence-options"
+        );
+
+    const status =
+        document.getElementById(
+            "wisdom-sequence-status"
+        );
+
+
+    display.innerHTML = "";
+
+    options.innerHTML = "";
+
+    status.textContent =
+        "Watch carefully...";
+
+
+    // Create shuffled sequence
+
+    wisdomSequence =
+        [...wisdomSymbols]
+            .sort(
+                () => Math.random() - 0.5
+            );
+
+
+    wisdomSequencePosition = 0;
+
+
+    // Display symbols
+
+    wisdomSequence.forEach(
+        function(symbol) {
+
+            const element =
+                document.createElement("div");
+
+            element.className =
+                "wisdom-sequence-symbol";
+
+            element.textContent =
+                symbol;
+
+            display.appendChild(element);
+
+        }
+    );
+
+
+    // Hide sequence after 2.5 seconds
+
+    setTimeout(
+        function() {
+
+            if (!wisdomActive) {
+                return;
+            }
+
+            display.style.opacity = "0";
+
+            setTimeout(
+                function() {
+
+                    display.style.display =
+                        "none";
+
+                    showWisdomSequenceOptions();
+
+                },
+                400
+            );
+
+        },
+        2500
+    );
+
+}
+
+
+// =========================================================
+// TRIAL 1 OPTIONS
+// =========================================================
+
+function showWisdomSequenceOptions() {
+
+    const options =
+        document.getElementById(
+            "wisdom-sequence-options"
+        );
+
+    const status =
+        document.getElementById(
+            "wisdom-sequence-status"
+        );
+
+    options.innerHTML = "";
+
+    status.textContent =
+        "Rebuild the pattern from memory.";
+
+
+    wisdomSymbols.forEach(
+        function(symbol) {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "wisdom-symbol-button";
+
+            button.textContent =
+                symbol;
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    handleWisdomSequenceChoice(
+                        symbol
+                    );
+
+                }
+            );
+
+            options.appendChild(button);
+
+        }
+    );
+
+}
+
+
+// =========================================================
+// CHECK TRIAL 1
+// =========================================================
+
+function handleWisdomSequenceChoice(
+    symbol
+) {
+
+    if (!wisdomActive) {
+        return;
+    }
+
+
+    const expected =
+        wisdomSequence[
+            wisdomSequencePosition
+        ];
+
+
+    const status =
+        document.getElementById(
+            "wisdom-sequence-status"
+        );
+
+
+    if (symbol !== expected) {
+
+        wisdomSequencePosition = 0;
+
+        status.textContent =
+            "Not quite. The pattern has been reset. Try again.";
+
+        return;
+
+    }
+
+
+    wisdomSequencePosition++;
+
+
+    if (
+        wisdomSequencePosition <
+        wisdomSequence.length
+    ) {
+
+        status.textContent =
+            "✨ Correct. Continue the pattern.";
+
+        return;
+
+    }
+
+
+    // Trial completed
+
+    wisdomScore += 100;
+
+    status.textContent =
+        "✨ Excellent observation!";
+
+    updateWisdomUI();
+
+
+    setTimeout(
+        function() {
+
+            showWisdomTrial2();
+
+        },
+        900
+    );
+
+}
+
+
+// =========================================================
+// TRIAL 2
+// =========================================================
+
+function showWisdomTrial2() {
+
+    wisdomTrial = 2;
+
+    updateWisdomUI();
+
+
+    document
+        .getElementById("wisdom-trial-1")
+        .style.display = "none";
+
+    document
+        .getElementById("wisdom-trial-2")
+        .style.display = "block";
+
+    document
+        .getElementById("wisdom-trial-3")
+        .style.display = "none";
+
+
+    document
+        .getElementById("wisdom-title")
+        .textContent =
+        "THE SECOND TEACHING";
+
+
+    document
+        .getElementById("wisdom-message")
+        .textContent =
+        "Remember the symbols carefully. One memory will disappear, and you must identify it.";
+
+
+    const display =
+        document.getElementById(
+            "wisdom-memory-display"
+        );
+
+    const options =
+        document.getElementById(
+            "wisdom-memory-options"
+        );
+
+    const status =
+        document.getElementById(
+            "wisdom-memory-status"
+        );
+
+
+    display.innerHTML = "";
+
+    options.innerHTML = "";
+
+
+    status.textContent =
+        "Remember what you see...";
+
+
+    wisdomMemorySequence =
+        [...wisdomSymbols]
+            .sort(
+                () => Math.random() - 0.5
+            );
+
+
+    wisdomMissingSymbol =
+        wisdomMemorySequence[
+            Math.floor(
+                Math.random() *
+                wisdomMemorySequence.length
+            )
+        ];
+
+
+    wisdomMemorySequence.forEach(
+        function(symbol) {
+
+            const element =
+                document.createElement("div");
+
+            element.className =
+                "wisdom-memory-symbol";
+
+            element.textContent =
+                symbol;
+
+            display.appendChild(element);
+
+        }
+    );
+
+
+    setTimeout(
+        function() {
+
+            if (!wisdomActive) {
+                return;
+            }
+
+
+            display.style.opacity = "0";
+
+
+            setTimeout(
+                function() {
+
+                    display.style.display =
+                        "none";
+
+                    showWisdomMemoryOptions();
+
+                },
+                400
+            );
+
+        },
+        2200
+    );
+
+}
+
+
+// =========================================================
+// TRIAL 2 OPTIONS
+// =========================================================
+
+function showWisdomMemoryOptions() {
+
+    const options =
+        document.getElementById(
+            "wisdom-memory-options"
+        );
+
+    const status =
+        document.getElementById(
+            "wisdom-memory-status"
+        );
+
+
+    options.innerHTML = "";
+
+    status.textContent =
+        "Which symbol was part of the memory?";
+
+
+    wisdomSymbols.forEach(
+        function(symbol) {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "wisdom-symbol-button";
+
+            button.textContent =
+                symbol;
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    if (
+                        symbol ===
+                        wisdomMissingSymbol
+                    ) {
+
+                        wisdomScore += 100;
+
+                        status.textContent =
+                            "✨ Correct! Your memory is strong.";
+
+                        status.classList.add(
+                            "success"
+                        );
+
+                        updateWisdomUI();
+
+
+                        setTimeout(
+                            function() {
+
+                                showWisdomTrial3();
+
+                            },
+                            900
+                        );
+
+                    }
+                    else {
+
+                        status.textContent =
+                            "Keep remembering. Try another symbol.";
+
+                    }
+
+                }
+            );
+
+
+            options.appendChild(button);
+
+        }
+    );
+
+}
+
+
+// =========================================================
+// TRIAL 3
+// =========================================================
+
+function showWisdomTrial3() {
+
+    wisdomTrial = 3;
+
+    updateWisdomUI();
+
+
+    document
+        .getElementById("wisdom-trial-1")
+        .style.display = "none";
+
+    document
+        .getElementById("wisdom-trial-2")
+        .style.display = "none";
+
+    document
+        .getElementById("wisdom-trial-3")
+        .style.display = "block";
+
+
+    document
+        .getElementById("wisdom-title")
+        .textContent =
+        "THE THIRD TEACHING";
+
+
+    document
+        .getElementById("wisdom-message")
+        .textContent =
+        "Knowledge becomes wisdom when we choose our actions thoughtfully.";
+
+
+    document
+        .getElementById("wisdom-choice-status")
+        .textContent =
+        "Choose carefully.";
+
+}
+
+
+// =========================================================
+// TRIAL 3 CHOICES
+// =========================================================
+
+document
+    .querySelectorAll(".wisdom-choice")
+    .forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    if (!wisdomActive) {
+                        return;
+                    }
+
+
+                    const answer =
+                        button.dataset.answer;
+
+
+                    const status =
+                        document.getElementById(
+                            "wisdom-choice-status"
+                        );
+
+
+                    if (
+                        answer === "correct"
+                    ) {
+
+                        wisdomScore += 100;
+
+                        status.textContent =
+                            "✨ Wise choice. Patience reveals another path.";
+
+                        status.classList.add(
+                            "success"
+                        );
+
+                        updateWisdomUI();
+
+
+                        setTimeout(
+                            function() {
+
+                                completeWisdomChapter();
+
+                            },
+                            1000
+                        );
+
+                    }
+                    else {
+
+                        status.textContent =
+                            "Think calmly. Wisdom does not require rushing.";
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+// =========================================================
+// COMPLETE CHAPTER 4
+// =========================================================
+
+function completeWisdomChapter() {
+
+    if (!wisdomActive) {
+        return;
+    }
+
+
+    wisdomActive = false;
+
+
+    // Permanent reward — only once
+
+    const firstCompletion =
+        completeChapterOnce(
+            4,
+            400
+        );
+
+
+    // Unlock Chapter 5
+
+    unlockChapter5();
+
+
+    // Update progress
+
+    updateStoryProgress();
+
+
+    console.log(
+        "Chapter 4 first completion:",
+        firstCompletion
+    );
+
+
+    const panel =
+        document.getElementById(
+            "wisdom-complete"
+        );
+
+
+    if (panel) {
+
+        panel.style.display =
+            "flex";
+
+    }
+
+}
+
+
+// =========================================================
+// UNLOCK CHAPTER 5
+// =========================================================
+
+function unlockChapter5() {
+
+    const chapter5 =
+        document.getElementById(
+            "chapter-5"
+        );
+
+
+    if (!chapter5) {
+        return;
+    }
+
+
+    chapter5.classList.remove(
+        "locked"
+    );
+
+    chapter5.classList.add(
+        "unlocked"
+    );
+
+
+    const icon =
+        chapter5.querySelector(
+            ".memory-icon"
+        );
+
+
+    const status =
+        chapter5.querySelector(
+            ".chapter-status"
+        );
+
+
+    if (icon) {
+
+        icon.textContent =
+            "💎";
+
+    }
+
+
+    if (status) {
+
+        if (
+            gameState.completedChapters[5]
+        ) {
+
+            status.textContent =
+                "✓ COMPLETED";
+
+        }
+        else {
+
+            status.textContent =
+                "UNLOCKED";
+
+        }
+
+    }
+
+}
+
+
+// =========================================================
+// CONTINUE AFTER CHAPTER 4
+// =========================================================
+
+const continueWisdom =
+    document.getElementById(
+        "continue-wisdom"
+    );
+
+
+if (continueWisdom) {
+
+    continueWisdom.addEventListener(
+        "click",
+        function() {
+
+            const panel =
+                document.getElementById(
+                    "wisdom-complete"
+                );
+
+
+            const chapter4 =
+                document.getElementById(
+                    "chapter-4-screen"
+                );
+
+
+            const storyMap =
+                document.getElementById(
+                    "story-map"
+                );
+
+
+            if (panel) {
+
+                panel.style.display =
+                    "none";
+
+            }
+
+
+            if (chapter4) {
+
+                chapter4.style.display =
+                    "none";
+
+            }
+
+
+            if (storyMap) {
+
+                storyMap.style.display =
+                    "block";
+
+            }
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
+
+// =========================================================
+// BACK FROM CHAPTER 4
+// =========================================================
+
+const chapter4Back =
+    document.getElementById(
+        "chapter-4-back"
+    );
+
+
+if (chapter4Back) {
+
+    chapter4Back.addEventListener(
+        "click",
+        function() {
+
+            wisdomActive = false;
+
+
+            const panel =
+                document.getElementById(
+                    "wisdom-complete"
+                );
+
+
+            const chapter4 =
+                document.getElementById(
+                    "chapter-4-screen"
+                );
+
+
+            const storyMap =
+                document.getElementById(
+                    "story-map"
+                );
+
+
+            if (panel) {
+
+                panel.style.display =
+                    "none";
+
+            }
+
+
+            if (chapter4) {
+
+                chapter4.style.display =
+                    "none";
+
+            }
+
+
+            if (storyMap) {
+
+                storyMap.style.display =
+                    "block";
+
+            }
+
+
+            updateStoryProgress();
+
+        }
+    );
+
+}
+
