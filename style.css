@@ -471,6 +471,25 @@ button:hover {
 .control-button:active {
     transform: scale(0.92);
 }
+
+/* Prevent text selection on all mobile game controls */
+.mobile-controls,
+.mobile-controls button,
+.mobile-controls *,
+.mushak-mobile-controls,
+.mushak-mobile-controls button,
+.mushak-chase-mobile-controls,
+.mushak-chase-mobile-controls button {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.mobile-controls button,
+.mushak-mobile-controls button,
+.mushak-chase-mobile-controls button {
+    touch-action: none;
+}
 /* ========================================
    MOBILE CONTROLS - MOBILE ONLY
 ======================================== */

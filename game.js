@@ -1309,8 +1309,12 @@ function checkMemoryFragment() {
         // Complete Chapter 1 ONCE
         // --------------------------------
 
+            const chapter1Bonus =
+        (cluesCollected >= 3 ? 50 : 0) +
+        (collectedClueOrder.length === 3 ? 25 : 0);
+
         const firstCompletion =
-            completeChapterOnce(1, 100);
+            completeChapterOnce(1, 100 + chapter1Bonus);
 
 
         // --------------------------------
@@ -2366,8 +2370,14 @@ function completeGuardianChapter() {
        permanent game score again.
     */
 
-    const firstCompletion =
-        completeChapterOnce(2, 250);
+    const chapter2Bonus =
+    (guardianLives >= 3 ? 75 : 0) +
+    (guardianScore >= 400 ? 50 : 0);
+
+const firstCompletion =
+    completeChapterOnce(2, 250 + chapter2Bonus);
+
+
 
 
     // ------------------------------------
@@ -2963,9 +2973,12 @@ function completeTransformationChapter() {
     // PERMANENT CHAPTER 3 COMPLETION
     // ------------------------------------
 
-    const firstCompletion =
-        completeChapterOnce(3, 300);
+    const chapter3Bonus =
+    (transformationMoves <= 6 ? 75 : 0) +
+    (transformationMoves <= 4 ? 50 : 0);
 
+const firstCompletion =
+    completeChapterOnce(3, 300 + chapter3Bonus);
 
     /*
        IMPORTANT:
@@ -4162,12 +4175,15 @@ function handleWisdomChoice(correct) {
 
 function completeWisdomChapter() {
 
-    const firstCompletion =
-        completeChapterOnce(
-            4,
-            400
-        );
+    const chapter4Bonus =
+    (wisdomScore >= 300 ? 75 : 0) +
+    (wisdomScore >= 400 ? 50 : 0);
 
+const firstCompletion =
+    completeChapterOnce(
+        4,
+        400 + chapter4Bonus
+    );
 
     // Chapter 4 is completed.
 
@@ -8870,11 +8886,15 @@ document.addEventListener(
         );
 
 
-        const firstCompletion =
-            completeChapterOnce(
-                5,
-                500
-            );
+        const chapter5Bonus =
+    (gameState.score >= 1400 ? 75 : 0) +
+    (gameState.score >= 1200 ? 50 : 0);
+
+const firstCompletion =
+    completeChapterOnce(
+        5,
+        500 + chapter5Bonus
+    );
 
 
         // Store the final memory only once
