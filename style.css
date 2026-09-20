@@ -6993,54 +6993,108 @@ button:hover {
 
     color: #ddd;
 }
+
 /* ========================================
-   CHAPTER 1 MOBILE LANDSCAPE FIX
+   CHAPTER 1 - COMFORTABLE MOBILE LANDSCAPE
 ======================================== */
 
 @media (max-width: 700px) and (orientation: landscape) {
 
     #chapter-1-screen {
-        padding: 8px 12px;
+        min-height: 100vh;
+        padding: 6px 12px;
         box-sizing: border-box;
     }
 
+    /* Compact header */
     #chapter-1-screen .chapter-header {
-        margin-bottom: 8px;
+        margin: 0 0 6px 0;
+        padding: 0;
+        line-height: 1.2;
     }
 
     #chapter-1-screen .chapter-header h1 {
         font-size: 20px;
-        margin: 0;
+        margin: 0 0 3px 0;
     }
 
     #chapter-1-screen .chapter-header p {
         font-size: 11px;
-        margin: 4px 0;
+        margin: 2px 0;
     }
 
     #chapter-1-screen .chapter-symbol {
-        font-size: 28px;
+        font-size: 26px;
+        margin: 0;
     }
 
+    /* Give the actual game area enough room */
     #chapter-1-screen .chapter-area {
         position: relative;
-        height: calc(100vh - 110px);
-        min-height: 0;
-        margin: 8px auto;
+        width: 100%;
+        height: calc(100vh - 105px);
+        min-height: 240px;
+        margin: 6px auto 0;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
+    /* Keep controls comfortably away from the edges */
     #chapter-1-screen .mobile-controls {
+        position: fixed !important;
+
+        left: 18px !important;
+        bottom: 14px !important;
+
         display: flex !important;
-        position: absolute;
-        left: 10px;
-        bottom: 10px;
-        z-index: 1000;
+
+        z-index: 99999 !important;
+
+        gap: 7px;
+    }
+
+    #chapter-1-screen .control-middle {
+        display: flex !important;
+        gap: 7px;
     }
 
     #chapter-1-screen .control-button {
-        width: 42px;
-        height: 42px;
-        font-size: 16px;
+        width: 48px !important;
+        height: 48px !important;
+
+        min-width: 48px !important;
+        min-height: 48px !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        font-size: 18px !important;
+
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    /* Keep the player and clues inside the playable area */
+    #chapter-1-screen #player {
+        font-size: 32px;
+    }
+
+    #chapter-1-screen .clue {
+        font-size: 26px;
+    }
+
+    #chapter-1-screen #clue-counter {
+        font-size: 12px;
     }
 }
