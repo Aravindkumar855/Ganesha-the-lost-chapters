@@ -4569,6 +4569,53 @@ function startMushakJourney() {
     mushakJourneyActive = true;
     mushakIntroStep = 0;
 
+        // Hide gameplay until the intro is finished.
+    const explorationMessage =
+        document.getElementById(
+            "mushak-exploration-message"
+        );
+
+    const explorationWorld =
+        document.getElementById(
+            "mushak-world"
+        );
+
+    const explorationControls =
+        document.querySelector(
+            "#chapter-5-screen .mushak-mobile-controls"
+        );
+
+    const chase =
+        document.getElementById(
+            "mushak-chase"
+        );
+
+    const chaseControls =
+        document.querySelector(
+            "#chapter-5-screen .mushak-chase-mobile-controls"
+        );
+
+
+    if (explorationMessage) {
+        explorationMessage.style.display = "none";
+    }
+
+    if (explorationWorld) {
+        explorationWorld.style.display = "none";
+    }
+
+    if (explorationControls) {
+        explorationControls.style.display = "none";
+    }
+
+    if (chase) {
+        chase.style.display = "none";
+    }
+
+    if (chaseControls) {
+        chaseControls.style.display = "none";
+    }
+
     const introText =
         document.getElementById("mushak-intro-text");
 
@@ -4706,11 +4753,40 @@ if (mushakBeginButton) {
 }
 
 
+
 // ========================================
 // ENTER THE FORGOTTEN PATH
 // ========================================
 
 function beginMushakAdventure() {
+
+        const explorationMessage =
+        document.getElementById(
+            "mushak-exploration-message"
+        );
+
+    const explorationWorld =
+        document.getElementById(
+            "mushak-world"
+        );
+
+    const explorationControls =
+        document.querySelector(
+            "#chapter-5-screen .mushak-mobile-controls"
+        );
+
+
+    if (explorationMessage) {
+        explorationMessage.style.display = "block";
+    }
+
+    if (explorationWorld) {
+        explorationWorld.style.display = "block";
+    }
+
+    if (explorationControls) {
+        explorationControls.style.display = "";
+    }
 
     const introLayout =
         document.querySelector(
@@ -5544,7 +5620,7 @@ document.addEventListener(
 
 
 // =========================================================
-// MOBILE CONTROLS
+// MOBILE CONTROLS — FORGOTTEN PATH
 // =========================================================
 
 const mushakMoveButtons =
@@ -5569,13 +5645,32 @@ mushakMoveButtons.forEach(
                 mushakMobileDirection =
                     direction;
 
+                /*
+                   Keep receiving pointer events
+                   even if the finger moves slightly.
+                */
+                if (
+                    button.setPointerCapture &&
+                    event.pointerId !== undefined
+                ) {
+                    try {
+                        button.setPointerCapture(
+                            event.pointerId
+                        );
+                    } catch (error) {
+                        // Ignore unsupported pointer capture.
+                    }
+                }
+
             }
         );
 
 
         button.addEventListener(
             "pointerup",
-            function() {
+            function(event) {
+
+                event.preventDefault();
 
                 mushakMobileDirection =
                     null;
@@ -5596,7 +5691,7 @@ mushakMoveButtons.forEach(
 
 
         button.addEventListener(
-            "pointerleave",
+            "lostpointercapture",
             function() {
 
                 mushakMobileDirection =
@@ -6539,13 +6634,33 @@ mushakChaseMoveButtons.forEach(
                 mushakChaseMobileDirection =
                     direction;
 
+
+                /*
+                   Keep receiving pointer events
+                   while the finger remains pressed.
+                */
+                if (
+                    button.setPointerCapture &&
+                    event.pointerId !== undefined
+                ) {
+                    try {
+                        button.setPointerCapture(
+                            event.pointerId
+                        );
+                    } catch (error) {
+                        // Ignore unsupported pointer capture.
+                    }
+                }
+
             }
         );
 
 
         button.addEventListener(
             "pointerup",
-            function() {
+            function(event) {
+
+                event.preventDefault();
 
                 mushakChaseMobileDirection =
                     null;
@@ -6566,7 +6681,7 @@ mushakChaseMoveButtons.forEach(
 
 
         button.addEventListener(
-            "pointerleave",
+            "lostpointercapture",
             function() {
 
                 mushakChaseMobileDirection =
@@ -8754,6 +8869,53 @@ function startMushakFinalRevelation() {
         return;
 
     }
+
+            // Hide the old Chapter 5 gameplay scenes.
+        const explorationMessage =
+            document.getElementById(
+                "mushak-exploration-message"
+            );
+
+        const explorationWorld =
+            document.getElementById(
+                "mushak-world"
+            );
+
+        const explorationControls =
+            document.querySelector(
+                "#chapter-5-screen .mushak-mobile-controls"
+            );
+
+        const chase =
+            document.getElementById(
+                "mushak-chase"
+            );
+
+        const chaseControls =
+            document.querySelector(
+                "#chapter-5-screen .mushak-chase-mobile-controls"
+            );
+
+
+        if (explorationMessage) {
+            explorationMessage.style.display = "none";
+        }
+
+        if (explorationWorld) {
+            explorationWorld.style.display = "none";
+        }
+
+        if (explorationControls) {
+            explorationControls.style.display = "none";
+        }
+
+        if (chase) {
+            chase.style.display = "none";
+        }
+
+        if (chaseControls) {
+            chaseControls.style.display = "none";
+        }
 
 
     final.style.display =

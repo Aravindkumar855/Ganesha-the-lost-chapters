@@ -6993,89 +6993,193 @@ button:hover {
 
     color: #ddd;
 }
-
 /* ========================================
-   FINAL MOBILE CONTROLS FIX
+   MOBILE CONTROLS — FINAL CLEAN VERSION
 ======================================== */
 
 @media (max-width: 700px) {
 
-    /* CHAPTER 1 */
+    /* ====================================
+       CHAPTER 1 D-PAD
+       ==================================== */
+
     #chapter-1-screen .mobile-controls {
-
         position: fixed !important;
 
-        left: 15px !important;
-        bottom: 15px !important;
+        left: 18px !important;
+        bottom: 18px !important;
 
         display: flex !important;
+        flex-direction: column !important;
 
-        z-index: 99999 !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        width: auto !important;
-        height: auto !important;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        pointer-events: auto !important;
-    }
-
-
-    /* CHAPTER 5 - MAIN MOBILE CONTROLS */
-    #chapter-5-screen .mushak-mobile-controls {
-
-        position: fixed !important;
-
-        left: 15px !important;
-        bottom: 15px !important;
-
-        display: flex !important;
+        width: 205px !important;
+        height: 145px !important;
 
         z-index: 99999 !important;
 
         visibility: visible !important;
         opacity: 1 !important;
-
         pointer-events: auto !important;
+
+        gap: 7px !important;
     }
 
-
-    /* CHAPTER 5 - CHASE CONTROLS */
-    #chapter-5-screen .mushak-chase-mobile-controls {
-
-        position: fixed !important;
-
-        left: 15px !important;
-        bottom: 15px !important;
-
+    #chapter-1-screen .control-middle {
         display: flex !important;
 
-        z-index: 99999 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        pointer-events: auto !important;
+        gap: 7px !important;
     }
 
+    #chapter-1-screen .control-button {
+        width: 60px !important;
+        height: 60px !important;
 
-    /* Make every mobile control comfortable to tap */
+        min-width: 60px !important;
+        min-height: 60px !important;
 
-    #chapter-1-screen .control-button,
-    #chapter-5-screen .mushak-mobile-controls button,
-    #chapter-5-screen .mushak-chase-mobile-controls button {
-
-        width: 52px !important;
-        height: 52px !important;
-
-        min-width: 52px !important;
-        min-height: 52px !important;
-
-        padding: 0 !important;
         margin: 0 !important;
+        padding: 0 !important;
 
-        font-size: 20px !important;
+        font-size: 24px !important;
+
+        border-radius: 14px !important;
+
+        touch-action: none !important;
+
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -webkit-touch-callout: none !important;
+    }
+
+
+    /* ====================================
+       CHAPTER 5 — FORGOTTEN PATH D-PAD
+       ==================================== */
+
+    #chapter-5-screen .mushak-mobile-controls {
+        position: fixed !important;
+
+        left: 18px !important;
+        bottom: 18px !important;
+
+        /*
+           IMPORTANT:
+           block keeps the HTML structure:
+
+               ▲
+           ◀   ▼   ▶
+        */
+        display: block !important;
+
+        width: 215px !important;
+        height: 150px !important;
+
+        text-align: center !important;
+
+        z-index: 99999 !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+
+        margin: 0 !important;
+    }
+
+    #chapter-5-screen .mushak-mobile-controls > div {
+        display: flex !important;
+
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 7px !important;
+    }
+
+    #chapter-5-screen .mushak-move-button {
+        width: 60px !important;
+        height: 60px !important;
+
+        min-width: 60px !important;
+        min-height: 60px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        font-size: 24px !important;
+
+        border-radius: 14px !important;
+
+        touch-action: none !important;
+
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -webkit-touch-callout: none !important;
+    }
+
+
+    /* ====================================
+       CHAPTER 5 — CHASE D-PAD
+       ==================================== */
+
+    #chapter-5-screen .mushak-chase-mobile-controls {
+        position: fixed !important;
+
+        left: 18px !important;
+        bottom: 18px !important;
+
+        /*
+           IMPORTANT:
+           block keeps the HTML structure:
+
+               ▲
+           ◀   ▼   ▶
+        */
+        display: block !important;
+
+        width: 215px !important;
+        height: 150px !important;
+
+        text-align: center !important;
+
+        z-index: 99999 !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+
+        margin: 0 !important;
+    }
+
+    #chapter-5-screen .mushak-chase-mobile-controls > div {
+        display: flex !important;
+
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 7px !important;
+    }
+
+    #chapter-5-screen .mushak-chase-move {
+        width: 60px !important;
+        height: 60px !important;
+
+        min-width: 60px !important;
+        min-height: 60px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        font-size: 24px !important;
+
+        border-radius: 14px !important;
 
         touch-action: none !important;
 
@@ -7092,7 +7196,6 @@ button:hover {
 
 @media (max-width: 700px) and (orientation: landscape) {
 
-    /* Prevent the page from becoming horizontally enlarged */
     html,
     body {
         width: 100%;
@@ -7100,35 +7203,28 @@ button:hover {
         overflow-x: hidden;
     }
 
-
-    /* Keep the game screens within the phone width */
     .screen {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
     }
 
-
-    /* Slightly smaller controls in landscape */
     #chapter-1-screen .control-button,
-    #chapter-5-screen .mushak-mobile-controls button,
-    #chapter-5-screen .mushak-chase-mobile-controls button {
+    #chapter-5-screen .mushak-move-button,
+    #chapter-5-screen .mushak-chase-move {
+        width: 54px !important;
+        height: 54px !important;
 
-        width: 46px !important;
-        height: 46px !important;
+        min-width: 54px !important;
+        min-height: 54px !important;
 
-        min-width: 46px !important;
-        min-height: 46px !important;
-
-        font-size: 18px !important;
+        font-size: 22px !important;
     }
-
 
     #chapter-1-screen .mobile-controls,
     #chapter-5-screen .mushak-mobile-controls,
     #chapter-5-screen .mushak-chase-mobile-controls {
-
-        left: 12px !important;
-        bottom: 12px !important;
+        left: 14px !important;
+        bottom: 14px !important;
     }
 }
