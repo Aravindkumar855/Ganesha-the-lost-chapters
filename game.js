@@ -6608,22 +6608,16 @@ document.addEventListener(
 );
 
 
-// =========================================================
-// MOBILE CHASE CONTROLS
-// =========================================================
-
 const mushakChaseMoveButtons =
     document.querySelectorAll(
         ".mushak-chase-move"
     );
-
 
 mushakChaseMoveButtons.forEach(
     function(button) {
 
         const direction =
             button.dataset.chaseDirection;
-
 
         button.addEventListener(
             "pointerdown",
@@ -6634,11 +6628,6 @@ mushakChaseMoveButtons.forEach(
                 mushakChaseMobileDirection =
                     direction;
 
-
-                /*
-                   Keep receiving pointer events
-                   while the finger remains pressed.
-                */
                 if (
                     button.setPointerCapture &&
                     event.pointerId !== undefined
@@ -6651,10 +6640,8 @@ mushakChaseMoveButtons.forEach(
                         // Ignore unsupported pointer capture.
                     }
                 }
-
             }
         );
-
 
         button.addEventListener(
             "pointerup",
@@ -6664,10 +6651,8 @@ mushakChaseMoveButtons.forEach(
 
                 mushakChaseMobileDirection =
                     null;
-
             }
         );
-
 
         button.addEventListener(
             "pointercancel",
@@ -6675,10 +6660,8 @@ mushakChaseMoveButtons.forEach(
 
                 mushakChaseMobileDirection =
                     null;
-
             }
         );
-
 
         button.addEventListener(
             "lostpointercapture",
@@ -6686,10 +6669,8 @@ mushakChaseMoveButtons.forEach(
 
                 mushakChaseMobileDirection =
                     null;
-
             }
         );
-
     }
 );
 // =========================================================
