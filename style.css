@@ -6993,21 +6993,23 @@ button:hover {
 
     color: #ddd;
 }
+
 /* ========================================
-   MOBILE CONTROLS — FINAL CLEAN VERSION
+   MOBILE GAME — FINAL RESPONSIVE VERSION
 ======================================== */
 
 @media (max-width: 700px) {
 
-    /* ====================================
-       CHAPTER 1 D-PAD
-       ==================================== */
+    /* =====================================
+       CHAPTER 1 CONTROLS
+    ===================================== */
 
     #chapter-1-screen .mobile-controls {
+
         position: fixed !important;
 
-        left: 18px !important;
-        bottom: 18px !important;
+        left: 14px !important;
+        bottom: 14px !important;
 
         display: flex !important;
         flex-direction: column !important;
@@ -7015,71 +7017,74 @@ button:hover {
         align-items: center !important;
         justify-content: center !important;
 
-        width: 205px !important;
-        height: 145px !important;
+        width: 220px !important;
+        height: 165px !important;
 
         z-index: 99999 !important;
 
         visibility: visible !important;
         opacity: 1 !important;
+
         pointer-events: auto !important;
 
         gap: 7px !important;
+
     }
+
 
     #chapter-1-screen .control-middle {
+
         display: flex !important;
 
         flex-direction: row !important;
+
         align-items: center !important;
         justify-content: center !important;
 
         gap: 7px !important;
+
     }
+
 
     #chapter-1-screen .control-button {
-        width: 60px !important;
-        height: 60px !important;
 
-        min-width: 60px !important;
-        min-height: 60px !important;
+        width: 68px !important;
+        height: 68px !important;
+
+        min-width: 68px !important;
+        min-height: 68px !important;
 
         margin: 0 !important;
         padding: 0 !important;
 
-        font-size: 24px !important;
+        font-size: 27px !important;
 
-        border-radius: 14px !important;
+        border-radius: 16px !important;
 
         touch-action: none !important;
 
         user-select: none !important;
         -webkit-user-select: none !important;
         -webkit-touch-callout: none !important;
+
     }
 
 
-    /* ====================================
-       CHAPTER 5 — FORGOTTEN PATH D-PAD
-       ==================================== */
+    /* =====================================
+       CHAPTER 5 — FORGOTTEN PATH
+    ===================================== */
 
     #chapter-5-screen .mushak-mobile-controls {
+
         position: fixed !important;
 
-        left: 18px !important;
-        bottom: 18px !important;
+        left: 14px !important;
+        bottom: 14px !important;
 
-        /*
-           IMPORTANT:
-           block keeps the HTML structure:
-
-               ▲
-           ◀   ▼   ▶
-        */
         display: block !important;
 
-        width: 215px !important;
-        height: 150px !important;
+        width: 225px !important;
+        height: 165px !important;
 
         text-align: center !important;
 
@@ -7087,106 +7092,304 @@ button:hover {
 
         visibility: visible !important;
         opacity: 1 !important;
+
         pointer-events: auto !important;
 
         margin: 0 !important;
+
     }
+
 
     #chapter-5-screen .mushak-mobile-controls > div {
+
         display: flex !important;
 
         flex-direction: row !important;
+
         align-items: center !important;
         justify-content: center !important;
 
         gap: 7px !important;
+
     }
 
-    #chapter-5-screen .mushak-move-button {
-        width: 60px !important;
-        height: 60px !important;
 
-        min-width: 60px !important;
-        min-height: 60px !important;
+    #chapter-5-screen .mushak-move-button {
+
+        width: 68px !important;
+        height: 68px !important;
+
+        min-width: 68px !important;
+        min-height: 68px !important;
 
         margin: 0 !important;
         padding: 0 !important;
 
-        font-size: 24px !important;
+        font-size: 27px !important;
 
-        border-radius: 14px !important;
+        border-radius: 16px !important;
 
         touch-action: none !important;
 
         user-select: none !important;
         -webkit-user-select: none !important;
         -webkit-touch-callout: none !important;
+
     }
 
 
-    /* ====================================
-       CHAPTER 5 — CHASE D-PAD
-       ==================================== */
+    /* =====================================
+       CHAPTER 5 — SHADOW CHASE
+    ===================================== */
 
     #chapter-5-screen .mushak-chase-mobile-controls {
+
         position: fixed !important;
 
-        left: 18px !important;
-        bottom: 18px !important;
+        left: 14px !important;
+        bottom: 14px !important;
 
-        /*
-           IMPORTANT:
-           block keeps the HTML structure:
-
-               ▲
-           ◀   ▼   ▶
-        */
         display: block !important;
 
-        width: 215px !important;
-        height: 150px !important;
+        width: 225px !important;
+        height: 165px !important;
 
         text-align: center !important;
 
-        z-index: 99999 !important;
+        z-index: 999999 !important;
 
         visibility: visible !important;
         opacity: 1 !important;
+
         pointer-events: auto !important;
 
         margin: 0 !important;
+
     }
 
+
     #chapter-5-screen .mushak-chase-mobile-controls > div {
+
         display: flex !important;
 
         flex-direction: row !important;
+
         align-items: center !important;
         justify-content: center !important;
 
         gap: 7px !important;
+
     }
 
-    #chapter-5-screen .mushak-chase-move {
-        width: 60px !important;
-        height: 60px !important;
 
-        min-width: 60px !important;
-        min-height: 60px !important;
+    #chapter-5-screen .mushak-chase-move {
+
+        width: 68px !important;
+        height: 68px !important;
+
+        min-width: 68px !important;
+        min-height: 68px !important;
 
         margin: 0 !important;
         padding: 0 !important;
 
-        font-size: 24px !important;
+        font-size: 27px !important;
 
-        border-radius: 14px !important;
+        border-radius: 16px !important;
 
         touch-action: none !important;
 
         user-select: none !important;
         -webkit-user-select: none !important;
         -webkit-touch-callout: none !important;
+
+        pointer-events: auto !important;
+
+        cursor: pointer !important;
+
     }
+
+
+    /* =====================================
+       CHAPTER 5 — MAKE THE GAME FEEL
+       LESS MAGNIFIED ON MOBILE
+    ===================================== */
+
+    #chapter-5-screen .mushak-chase {
+
+        width: 96% !important;
+
+        margin: 14px auto 0 !important;
+
+    }
+
+
+    #chapter-5-screen .mushak-chase-world {
+
+        width: 100% !important;
+
+        height: 360px !important;
+
+        min-height: 360px !important;
+
+        max-height: 360px !important;
+
+        border-radius: 18px !important;
+
+    }
+
+
+    /* Smaller background objects */
+
+    #chapter-5-screen .chase-moon {
+
+        right: 14px !important;
+
+        top: 12px !important;
+
+        font-size: 38px !important;
+
+    }
+
+
+    #chapter-5-screen .chase-tree {
+
+        font-size: 30px !important;
+
+    }
+
+
+    /* Smaller Mushak */
+
+    #chapter-5-screen .mushak-chase-player {
+
+        width: 54px !important;
+        height: 54px !important;
+
+        font-size: 40px !important;
+
+    }
+
+
+    /* Smaller shadow */
+
+    #chapter-5-screen .mushak-shadow {
+
+        font-size: 36px !important;
+
+    }
+
+
+    #chapter-5-screen .mushak-shadow.near {
+
+        font-size: 42px !important;
+
+    }
+
+
+    /* Smaller destination */
+
+    #chapter-5-screen .mushak-chase-finish {
+
+        width: 48px !important;
+        height: 85px !important;
+
+        font-size: 30px !important;
+
+    }
+
+
+    /* Keep collectible energy compact */
+
+    #chapter-5-screen .chase-energy {
+
+        font-size: 25px !important;
+
+    }
+
+
+    /* Keep obstacles compact */
+
+    #chapter-5-screen .chase-obstacle {
+
+        font-size: 28px !important;
+
+    }
+
+
+    /* Smaller chase heading */
+
+    #chapter-5-screen .mushak-chase-title {
+
+        font-size: 16px !important;
+
+        letter-spacing: 2px !important;
+
+    }
+
+
+    #chapter-5-screen .mushak-chase-stats {
+
+        font-size: 10px !important;
+
+        gap: 10px !important;
+
+    }
+
+
+    #chapter-5-screen .mushak-chase-message {
+
+        min-height: 26px !important;
+
+        margin-bottom: 8px !important;
+
+        font-size: 14px !important;
+
+    }
+
+}
+
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 390px) {
+
+    #chapter-1-screen .control-button,
+    #chapter-5-screen .mushak-move-button,
+    #chapter-5-screen .mushak-chase-move {
+
+        width: 62px !important;
+        height: 62px !important;
+
+        min-width: 62px !important;
+        min-height: 62px !important;
+
+        font-size: 25px !important;
+
+    }
+
+
+    #chapter-1-screen .mobile-controls,
+    #chapter-5-screen .mushak-mobile-controls,
+    #chapter-5-screen .mushak-chase-mobile-controls {
+
+        left: 10px !important;
+        bottom: 10px !important;
+
+    }
+
+
+    #chapter-5-screen .mushak-chase-world {
+
+        height: 340px !important;
+
+        min-height: 340px !important;
+        max-height: 340px !important;
+
+    }
+
 }
 
 
@@ -7198,33 +7401,47 @@ button:hover {
 
     html,
     body {
+
         width: 100%;
         max-width: 100%;
+
         overflow-x: hidden;
+
     }
 
+
     .screen {
+
         width: 100%;
         max-width: 100%;
+
         box-sizing: border-box;
+
     }
+
 
     #chapter-1-screen .control-button,
     #chapter-5-screen .mushak-move-button,
     #chapter-5-screen .mushak-chase-move {
-        width: 54px !important;
-        height: 54px !important;
 
-        min-width: 54px !important;
-        min-height: 54px !important;
+        width: 60px !important;
+        height: 60px !important;
 
-        font-size: 22px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
+
+        font-size: 24px !important;
+
     }
 
-    #chapter-1-screen .mobile-controls,
-    #chapter-5-screen .mushak-mobile-controls,
-    #chapter-5-screen .mushak-chase-mobile-controls {
-        left: 14px !important;
-        bottom: 14px !important;
+
+    #chapter-5-screen .mushak-chase-world {
+
+        height: 72vh !important;
+
+        min-height: 300px !important;
+        max-height: none !important;
+
     }
+
 }

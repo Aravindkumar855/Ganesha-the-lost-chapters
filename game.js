@@ -6607,11 +6607,115 @@ document.addEventListener(
     }
 );
 
+// =========================================================
+// MOBILE CHASE CONTROLS — ROBUST TOUCH VERSION
+// =========================================================
+
+let mushakChaseButtonTimer = null;
+
+function stopMushakChaseButton() {
+
+    if (mushakChaseButtonTimer !== null) {
+
+        clearInterval(
+            mushakChaseButtonTimer
+        );
+
+        mushakChaseButtonTimer = null;
+
+    }
+
+    mushakChaseMobileDirection = null;
+
+}
+
+
+function moveMushakChaseByButton(
+    direction
+) {
+
+    if (!mushakChaseActive) {
+        return;
+    }
+
+    const step = 2.2;
+
+    if (direction === "up") {
+
+        mushakChaseY -= step;
+
+    }
+
+    if (direction === "down") {
+
+        mushakChaseY += step;
+
+    }
+
+    if (direction === "left") {
+
+        mushakChaseX -= step;
+
+    }
+
+    if (direction === "right") {
+
+        mushakChaseX += step;
+
+    }
+
+
+    mushakChaseX =
+        Math.max(
+            7,
+            Math.min(
+                88,
+                mushakChaseX
+            )
+        );
+
+
+    mushakChaseY =
+        Math.max(
+            10,
+            Math.min(
+                90,
+                mushakChaseY
+            )
+        );
+
+
+    const player =
+        document.getElementById(
+            "mushak-chase-player"
+        );
+
+
+    if (player) {
+
+        player.style.left =
+            mushakChaseX + "%";
+
+        player.style.top =
+            mushakChaseY + "%";
+
+    }
+
+
+    mushakCheckChaseEnergy();
+
+    mushakCheckChaseObstacles();
+
+    mushakCheckChaseFinish();
+
+}
+
 
 const mushakChaseMoveButtons =
     document.querySelectorAll(
         ".mushak-chase-move"
     );
+
 
 mushakChaseMoveButtons.forEach(
     function(button) {
@@ -6619,29 +6723,60 @@ mushakChaseMoveButtons.forEach(
         const direction =
             button.dataset.chaseDirection;
 
+
         button.addEventListener(
             "pointerdown",
             function(event) {
 
                 event.preventDefault();
 
+                stopMushakChaseButton();
+
                 mushakChaseMobileDirection =
                     direction;
+
+
+                moveMushakChaseByButton(
+                    direction
+                );
+
 
                 if (
                     button.setPointerCapture &&
                     event.pointerId !== undefined
                 ) {
+
                     try {
+
                         button.setPointerCapture(
                             event.pointerId
                         );
-                    } catch (error) {
-                        // Ignore unsupported pointer capture.
+
                     }
+                    catch (error) {
+
+                        // Ignore pointer capture errors.
+
+                    }
+
                 }
+
+
+                mushakChaseButtonTimer =
+                    setInterval(
+                        function() {
+
+                            moveMushakChaseByButton(
+                                direction
+                            );
+
+                        },
+                        80
+                    );
+
             }
         );
+
 
         button.addEventListener(
             "pointerup",
@@ -6649,30 +6784,45 @@ mushakChaseMoveButtons.forEach(
 
                 event.preventDefault();
 
-                mushakChaseMobileDirection =
-                    null;
+                stopMushakChaseButton();
+
             }
         );
+
 
         button.addEventListener(
             "pointercancel",
             function() {
 
-                mushakChaseMobileDirection =
-                    null;
+                stopMushakChaseButton();
+
             }
         );
+
 
         button.addEventListener(
             "lostpointercapture",
             function() {
 
-                mushakChaseMobileDirection =
-                    null;
+                stopMushakChaseButton();
+
             }
         );
+
+
+        button.addEventListener(
+            "contextmenu",
+            function(event) {
+
+                event.preventDefault();
+
+            }
+        );
+
     }
 );
+
+
 // =========================================================
 // CHASE FINISH — SHRINE COLLISION
 // =========================================================
